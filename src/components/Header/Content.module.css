@@ -1,0 +1,95 @@
+.content {
+    height: 90vh;
+
+    display: grid;
+    grid-template-rows: 70% 20%;
+    align-items: center;
+}
+
+.curtour {
+    display: grid;
+    grid-template-areas: 
+        'dateWrapper'
+        'nameWrapper'
+        'buttonWrapper';
+
+    grid-template-rows: 10% 40% 20%;
+    min-height: 70%;
+    margin-left: 10%;
+}
+
+.dateWrap {
+    grid-area: dateWrapper;
+    display: inline-flex;
+    align-items: center;
+    height: 100%;
+}
+
+.date {
+    size: 100% 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+}
+
+.nameWrap {
+    grid-area: nameWrapper;
+    display: inline-flex;
+    align-items: center;
+    height: 100%;
+}
+
+.name {
+    font-size: 80px;
+    line-height: 97px;
+    letter-spacing: -0.01em;
+    color: white;
+}
+
+.btnWrap {
+    grid-area: buttonWrapper;
+    display: inline-flex;
+    align-items: center;
+}
+
+.btnStart {
+    padding: 16px 32px;
+    border: none;
+    border-radius: 50px;
+    
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #0F171F;
+    background: #FFFFFF;
+}
+.btnStart:hover {
+    color: #FFFFFF;
+    background: #0F171F;
+}
+
+.otours {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    color: white;
+}
+
+.otour {
+    margin: auto;
+    padding: 10px;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    opacity: 50%;
+}
+
+.ctour {
+    margin: auto;
+    padding: 10px;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+
+    border-top: solid 3px rgba(255, 255, 255, 0.75);
+}

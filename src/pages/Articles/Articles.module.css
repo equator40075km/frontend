@@ -1,0 +1,36 @@
+.container {
+    margin: 10px 10% 50px 10%;
+}
+
+.content {
+    display: grid;
+    grid-template-rows: 80vh auto;
+    grid-gap: 50px;
+}
+
+.bWrap {
+    display: grid;
+    grid-template-areas: 
+        "title title"
+        "bleft bright";
+    grid-template-columns: 55% auto;
+    grid-template-rows: 10% auto;
+    grid-gap: 25px;
+}
+
+.bTitle {
+    grid-area: title;
+    align-self: end;
+    font-size: 48px;
+}
+
+.bLeft {
+    grid-area: bleft;
+}
+
+.bRight {
+    grid-area: bright;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-gap: 25px;
+}

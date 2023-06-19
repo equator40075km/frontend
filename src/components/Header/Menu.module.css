@@ -1,0 +1,70 @@
+.menu {
+    height: 10vh;
+
+    display: grid;
+    grid-template-columns: 20% 50% 20%;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 10%;
+}
+
+.logo {
+    width: 100%;
+}
+
+.links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    margin-left: 20%;
+    margin-right: 20%;
+
+    text-align: center;
+}
+
+.link {
+    text-decoration: none;
+    font-size: 20px;
+}
+.link:hover {
+    text-decoration-line: underline;
+}
+.linkWhite {
+    color: white;
+}
+.linkBlack {
+    color: black;
+}
+
+.login {
+    min-width: 50%;
+    max-width: 50%;
+    margin-left: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    border: solid 1px;
+    border-radius: 30px;
+    font-size: 20px;
+}
+
+.loginWhite {
+    border-color: white;
+    background: rgba(255, 255, 255, 0);
+    color: white;
+}
+.loginWhite:hover {
+    background: rgb(255, 255, 255);
+    color: black;
+}
+
+.loginBlack {
+    border-color: black;
+    background: rgba(255, 255, 255, 0);
+    color: black;
+}
+.loginBlack:hover {
+    background: black;
+    color: white;
+}
+
