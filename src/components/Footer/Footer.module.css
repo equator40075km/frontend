@@ -1,4 +1,22 @@
 .container {
-    min-height: 100px;
+    min-height: 150px;
     background-color: #035629;
+
+    display: grid;
+}
+
+.content {
+    margin: auto 10%;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15%;
+    align-items: center;
+}
+
+.content img {
+    width: 100%;
+}
+.content img:hover {
+    cursor: pointer;
 }

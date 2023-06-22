@@ -16,15 +16,13 @@ export const useArticles = create(
             try {
                 const res = await axios.get('http://0.0.0.0:8000/api/v1/articles/')
 
-                console.log(res)
-
                 if (res.status !== 200) throw new Error('Failed to fetch articles!')
 
                 set({ articles: await res.data })
             } catch (error) {
                 console.log( error.message )
             } finally {
-                console.log( 'End fetch articles!' )
+                // console.log( 'End fetch articles!' )
             }
         },
 

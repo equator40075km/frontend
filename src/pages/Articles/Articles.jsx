@@ -32,8 +32,8 @@ const Articles = function () {
               <ArticleImageLink article={{...articles[0], big: true}} />
             </div>
             <div className={classes.bRight}>
-              <ArticleImageLink article={{...articles[1], big: false}} />
-              <ArticleImageLink article={{...articles[2], big: false}} />
+              <ArticleImageLink article={{...articles[1]}} />
+              <ArticleImageLink article={{...articles[2]}} />
             </div>
           </div>
           :

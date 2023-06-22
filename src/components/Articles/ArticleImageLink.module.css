@@ -30,8 +30,9 @@
     width: 50px;
     margin: 0 30px 30px auto;
 
-    background-image: url('btn-arrow.png');
+    background-image: url("btn-arrow.png");
 }
 .btn:hover {
-    background-image: url('btn-arrow-hover.png');
+    background-image: url("btn-arrow-hover.png");
+    cursor: pointer;
 }

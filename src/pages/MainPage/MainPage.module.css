@@ -1,0 +1,26 @@
+.container {
+    margin: 50px 10%;
+
+    display: grid;
+    grid-template-rows: repeat(3, 800px);
+    grid-gap: 50px;
+}
+
+.best {
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.travels {
+    display: grid;
+    grid-template-rows: 250px auto;
+    grid-gap: 25px;
+}
+
+.trLinks {
+
+}
+
+.merch {
+
+}

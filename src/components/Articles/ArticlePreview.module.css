@@ -12,6 +12,7 @@
 }
 .container:hover {
     border: 2px solid #035629;
+    cursor: pointer;
 }
 
 .image {

@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import MarkdownView from 'react-showdown'
-
 import classes from './ArticleDetail.module.css'
+
+import ArticleImageLink from '../../components/Articles/ArticleImageLink'
 
 import { useArticles } from '../../store/articles'
 import { useGlobal } from '../../store/global'
@@ -14,6 +15,8 @@ const ArticleDetail = function () {
   let article = useArticles(state => state.articles.filter(article => article.id === Number(params.id)))
   const notFound = article.length === 0
   article = notFound ? undefined : article[0]
+
+  const interests = useArticles(state => state.articles.slice(0, 3))
 
   useEffect(() => {
     setIsMainPage(false)
@@ -55,9 +58,10 @@ const ArticleDetail = function () {
           </div>
 
           <div className={classes.interests}>
-            Вам также может быть интересно<br />
-            И карусель ебейшая<br />
-            Высотой 500px
+            <p className={classes.ititle}>Вам так же может быть интерено</p>
+            {interests.map(article => (
+              <ArticleImageLink article={article} key={article.id}/>
+            ))}
           </div>
 
         </div>
