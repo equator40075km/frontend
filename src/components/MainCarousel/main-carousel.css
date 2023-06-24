@@ -1,0 +1,9 @@
+.slick-list {
+    height: 100%;
+    width: calc(100% + 10px);
+    border-radius: 20px;
+}
+
+.slick-track {
+    height: 100%;
+}

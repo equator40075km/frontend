@@ -28,7 +28,7 @@ const Footer = function () {
         <Contact contact={{
           image: '/static/tg-logo.png',
           text: 'Бот с билетами',
-          url: 'https://t.me/equator_channel'
+          url: 'https://t.me/equator_tickets_bot'
         }}/>
       </div>
     </div>

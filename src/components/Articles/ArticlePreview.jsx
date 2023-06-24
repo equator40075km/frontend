@@ -6,7 +6,12 @@ const OneArticle = function (props) {
   const navigate = useNavigate()
 
   const navigateToArticle = () => {
-    navigate(props.article.id.toString())
+    navigate(`/articles/${props.article.id}`)
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'instant'
+    })
   }
 
   return (

@@ -1,26 +1,121 @@
 .container {
-    margin: 50px 10%;
+    margin: 50px 10% 100px 10%;
 
     display: grid;
-    grid-template-rows: repeat(3, 800px);
-    grid-gap: 50px;
-}
-
-.best {
-    font-size: 40px;
-    font-weight: 600;
+    grid-template-rows: repeat(3, 80vh);
+    grid-template-columns: 100%;
+    grid-gap: 100px;
 }
 
 .travels {
     display: grid;
-    grid-template-rows: 250px auto;
-    grid-gap: 25px;
+    grid-template-rows: 150px auto;
+    grid-gap: 35px;
+}
+
+.trDescr {
+    display: grid;
+    grid-template-areas:
+        'descrTitle descrText'
+        'descrLogo  descrText';
+    grid-template-columns: 50% auto;
+    grid-template-rows: 40% auto;
+    grid-gap: 10px;
+}
+
+.trDescr img {
+    width: 75%;
+    object-fit: cover;
+}
+
+.descrTitle {
+    grid-area: descrTitle;
+    font-size: 40px;
+    font-weight: 600;
+    letter-spacing: 0.08ex;
+    line-height: 48px;
+}
+
+.descrText {
+    grid-area: descrText;
+    margin-left: 10%;
+    margin-top: 10px;
+
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
 }
 
 .trLinks {
+    display: grid;
+    grid-template-areas: 
+        'tours tours'
+        '_ __';
+    grid-template-columns: 60% auto;
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 25px;
+}
 
+.toursLink {
+    grid-area: tours;
 }
 
 .merch {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 100%;
+    grid-gap: 100px;
+}
 
+.merchL {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto 20% auto;
+    grid-gap: 25px;
+    text-align: center;
+}
+.merchTitle {
+    align-self: flex-end;
+
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 130%;
+}
+.merchText {
+    align-self: center;
+
+    font-size: 24px;
+    line-height: 150%;
+}
+.merchBtn {
+    margin: 0 auto;
+}
+
+.merchR{
+    /* overflow-y: hidden; */
+}
+
+.merchPhoto {
+    position: relative;
+    top: 10%;
+    height: 90%;
+    z-index: 1;
+}
+
+.merchPhoto img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.merchGreen {
+    position: relative;
+    bottom: 90%;
+    left: 20%;
+    height: 90%;
+    z-index: 0;
+
+    background: #035629;
+    border-radius: 20px;
 }

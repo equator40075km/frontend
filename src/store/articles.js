@@ -5,14 +5,16 @@ import { createJSONStorage } from 'zustand/middleware';
 
 export const useArticles = create(
     persist(
-        (set) => ({
-            articles: [],
+        (set, get) => ({
+        articles: [],
 
         setArticles: (articles) => set(state => ({
             articles: [...state.articles, ...articles]
         })),
 
         fetchArticles: async () => {
+            console.log("Fetch articles start!")
+
             try {
                 const res = await axios.get('http://0.0.0.0:8000/api/v1/articles/')
 

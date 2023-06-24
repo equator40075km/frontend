@@ -1,8 +1,9 @@
 import { create } from 'zustand'
 
 export const useGlobal = create(set => ({
-    isMainPage: true,
-    setIsMainPage: (isMainPage) => set(() => ({
-        isMainPage: isMainPage
+    currentPage: 0,
+
+    setCurrentPage: (page) => set(() => ({
+        currentPage: page
     }))
 }))

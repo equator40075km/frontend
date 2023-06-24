@@ -1,22 +1,21 @@
 import React, { useEffect } from 'react'
 import classes from './Articles.module.css'
 
-import ArticleImageLink from '../../components/Articles/ArticleImageLink'
+import ImageLink from '../../components/ImageLink/ImageLink'
 import ArticlePreview from '../../components/Articles/ArticlePreview'
 
 import { useArticles } from '../../store/articles'
 import { useGlobal } from '../../store/global'
 
 const Articles = function () {
-  const setIsMainPage = useGlobal(state => state.setIsMainPage)
+  const setCurrentPage = useGlobal(state => state.setCurrentPage)
   const articles = useArticles(state => state.articles)
   const fetchArticles = useArticles(state => state.fetchArticles)
 
   useEffect(() => {
-    setIsMainPage(false)
+    setCurrentPage(1)
     fetchArticles()
-  }, [])
-
+  }, [setCurrentPage, fetchArticles])
   
   return (
     <div className={classes.container}>
@@ -29,11 +28,11 @@ const Articles = function () {
                   Лучшее за неделю
             </div>
             <div className={classes.bLeft}>
-              <ArticleImageLink article={{...articles[0], big: true}} />
+              <ImageLink obj={{...articles[0], big: true}} />
             </div>
             <div className={classes.bRight}>
-              <ArticleImageLink article={{...articles[1]}} />
-              <ArticleImageLink article={{...articles[2]}} />
+              <ImageLink obj={{...articles[1]}} />
+              <ImageLink obj={{...articles[2]}} />
             </div>
           </div>
           :

@@ -26,13 +26,16 @@
 }
 
 .btn {
+    max-height: 50px;
     height: 50px;
     width: 50px;
     margin: 0 30px 30px auto;
 
-    background-image: url("btn-arrow.png");
+    background-image: url("./../../../public/static/btn-arrow.png");
+
+    transition: 250ms;
 }
 .btn:hover {
-    background-image: url("btn-arrow-hover.png");
+    background-image: url("./../../../public/static/btn-arrow-hover.png");
     cursor: pointer;
 }

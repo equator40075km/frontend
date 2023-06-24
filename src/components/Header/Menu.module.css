@@ -15,16 +15,22 @@
 .links {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
 
-    margin-left: 20%;
-    margin-right: 20%;
+    margin: 0 10%;
 
     text-align: center;
 }
 
 .link {
+    align-self: center;
+    padding: 5px 10px;
+
     text-decoration: none;
     font-size: 20px;
+
+    border: 2px solid rgba(0,0,0,0);
+    border-radius: 20px;
 }
 .link:hover {
     text-decoration-line: underline;
@@ -38,14 +44,14 @@
 
 .login {
     min-width: 50%;
-    max-width: 50%;
     margin-left: auto;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding: 10px 30px;
 
     border: solid 1px;
     border-radius: 30px;
     font-size: 20px;
+
+    transition: 250ms;
 }
 
 .loginWhite {

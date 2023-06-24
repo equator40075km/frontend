@@ -3,13 +3,13 @@ import { useParams } from 'react-router-dom'
 import MarkdownView from 'react-showdown'
 import classes from './ArticleDetail.module.css'
 
-import ArticleImageLink from '../../components/Articles/ArticleImageLink'
+import ImageLink from '../../components/ImageLink/ImageLink'
 
 import { useArticles } from '../../store/articles'
 import { useGlobal } from '../../store/global'
 
 const ArticleDetail = function () {
-  const setIsMainPage = useGlobal(state => state.setIsMainPage)
+  const setCurrentPage = useGlobal(state => state.setCurrentPage)
   
   const params = useParams()
   let article = useArticles(state => state.articles.filter(article => article.id === Number(params.id)))
@@ -19,13 +19,8 @@ const ArticleDetail = function () {
   const interests = useArticles(state => state.articles.slice(0, 3))
 
   useEffect(() => {
-    setIsMainPage(false)
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'instant'
-    })
-  }, [])
+    setCurrentPage(10)
+  })
 
   return (
     <>
@@ -48,7 +43,7 @@ const ArticleDetail = function () {
                 className={classes.avatar}
               />
               <p className={classes.name}>{article.author}</p>
-              <p className={classes.date}>01.01.1970</p>
+              <p className={classes.date}>{article.date ? article.date : '01.01.1970'}</p>
             </div>
             <img src={article.img} alt='equator' className={classes.image}/>
           </div>
@@ -60,7 +55,7 @@ const ArticleDetail = function () {
           <div className={classes.interests}>
             <p className={classes.ititle}>Вам так же может быть интерено</p>
             {interests.map(article => (
-              <ArticleImageLink article={article} key={article.id}/>
+              <ImageLink obj={article} key={article.id}/>
             ))}
           </div>
 
