@@ -32,8 +32,8 @@ const MainCarousel = function () {
         <div className={classes.container}>
             <div className={classes.title}>Лучшие статьи по версии EQUATOR</div>
             <div className={classes.arrows}>
-                <button className={classes.arrowPrev} onClick={() => slider?.current?.slickPrev()}>{'<'}</button>
-                <button className={classes.arrowNext} onClick={() => slider?.current?.slickNext()}>{'>'}</button>
+                <div className={classes.arrowPrev} onClick={() => slider?.current?.slickPrev()} />
+                <div className={classes.arrowNext} onClick={() => slider?.current?.slickNext()} />
             </div>
             <div className={classes.slider}>
                 <Slider ref={slider} {...settings}>

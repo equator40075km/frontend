@@ -67,6 +67,7 @@ const MainPage = function () {
             <GreenBtn>Присоединиться</GreenBtn>
           </div>
         </div>
+        
         <div className={classes.merchR}>
           <div className={classes.merchPhoto}>
             <img src='static/merch.jpg' alt='merch' />

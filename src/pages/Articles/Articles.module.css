@@ -1,5 +1,5 @@
 .container {
-    margin: 10px 10% 50px 10%;
+    margin: 0 10% 50px 10%;
 }
 
 .content {
@@ -14,14 +14,14 @@
         "title title"
         "bleft bright";
     grid-template-columns: 55% auto;
-    grid-template-rows: 10% auto;
+    grid-template-rows: 60px auto;
     grid-gap: 25px;
 }
 
 .bTitle {
     grid-area: title;
-    align-self: end;
-    font-size: 48px;
+    font-size: 40px;
+    font-weight: 600;
 }
 
 .bLeft {
