@@ -13,7 +13,7 @@ const MainPage = function () {
   const fetchArticles = useArticles(state => state.fetchArticles)
 
   useEffect(() => {
-    setCurrentPage(0)
+    setCurrentPage('main')
     fetchArticles()
   })
 
@@ -49,7 +49,7 @@ const MainPage = function () {
           }} />
           <ImageLink obj={{
             external: true,
-            url: 'https://vk.com/id136718452',
+            url: 'https://ostrovok.tp.st/4j2wgDAq',
             title: 'Забронируйте отель',
             img: 'static/hotels-link.jpeg',
             big: true

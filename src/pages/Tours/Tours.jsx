@@ -5,7 +5,7 @@ import { useGlobal } from '../../store/global'
 const Tours = function () {
     const setCurrentPage = useGlobal(state => state.setCurrentPage)
 
-    setCurrentPage(2)
+    setCurrentPage('tours')
 
     return (
         <div>Tours</div>

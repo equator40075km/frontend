@@ -2,23 +2,19 @@ import React from 'react'
 import classes from './Menu.module.css';
 import { Link } from 'react-router-dom';
 
+import { links } from '../../constants/constants';
+
 const Menu = function (props) {
   const currentPage = props.currentPage
-  const link_class = (!currentPage && undefined ? classes.linkWhite : classes.linkBlack) + ' ' + classes.link
-  const login_class = (!currentPage && undefined ? classes.loginWhite : classes.loginBlack) + ' ' + classes.login
-
-  const links = [
-    { page: 1, to: '/articles', text: 'Статьи' },
-    { page: 2, to: '/tours', text: 'Туры' },
-    { page: 3, to: '/merch', text: 'Мерч' },
-    { page: 4, to: '/about', text: 'О нас' },
-  ]
+  const showBack = props.showBack
+  const link_class = (showBack ? classes.linkWhite : classes.linkBlack) + ' ' + classes.link
+  const login_class = (showBack ? classes.loginWhite : classes.loginBlack) + ' ' + classes.login
 
   return (
     <div className={classes.menu}>
       <Link to='/'>
         <img className={classes.logo}
-             src={!currentPage && undefined ? '/static/logo-white.png' : '/static/logo-black.png'}
+             src={showBack ? '/static/logo-white.png' : '/static/logo-black.png'}
              alt='equator'/>
       </Link>
       <div className={classes.links}>

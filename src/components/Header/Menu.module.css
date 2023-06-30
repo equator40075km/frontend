@@ -47,7 +47,7 @@
     margin-left: auto;
     padding: 10px 30px;
 
-    border: solid 1px;
+    border: none;
     border-radius: 30px;
     font-size: 20px;
 
@@ -55,18 +55,17 @@
 }
 
 .loginWhite {
-    border-color: white;
-    background: rgba(255, 255, 255, 0);
-    color: white;
+    background: white;
+    color: black;
 }
 .loginWhite:hover {
-    background: rgb(255, 255, 255);
-    color: black;
+    background: black;
+    color: white;
 }
 
 .loginBlack {
-    border-color: black;
-    background: rgba(255, 255, 255, 0);
+    border: 2px solid black;
+    background: rgba(0, 0, 0, 0);
     color: black;
 }
 .loginBlack:hover {

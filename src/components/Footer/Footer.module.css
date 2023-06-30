@@ -1,22 +1,72 @@
 .container {
-    min-height: 150px;
+    height: 300px;
     background-color: #035629;
-
-    display: grid;
 }
 
 .content {
-    margin: auto 10%;
+    height: 100%;
+    margin: 0 10%;
+    padding-top: 50px;
 
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 15%;
-    align-items: center;
+    grid-template-columns: 30% auto auto auto;
+    grid-gap: 40px;
 }
-
 .content img {
     width: 100%;
 }
 .content img:hover {
     cursor: pointer;
+}
+
+.logo {
+    display: grid;
+    grid-template-rows: 80% auto;
+
+    color: rgba(255,255,255,0.6);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.links {
+    margin-bottom: auto;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 35px;
+    justify-content: center;
+}
+
+.link {
+    color: white;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-decoration: none;
+}
+.link:hover {
+    text-decoration: underline;
+}
+
+.tourLink {
+    composes: link;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.tours {
+    margin-bottom: auto;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 35px;
+    justify-content: center;
+}
+
+.contacts {
+    margin-bottom: auto;
+    display: grid;
+    grid-template-rows: repeat(3, 54px);
+    grid-gap: 5px;
 }

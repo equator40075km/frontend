@@ -19,7 +19,7 @@ const ArticleDetail = function () {
   const interests = useArticles(state => state.articles.slice(0, 3))
 
   useEffect(() => {
-    setCurrentPage(10)
+    setCurrentPage('articleDetail')
   })
 
   return (

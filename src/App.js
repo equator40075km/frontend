@@ -5,6 +5,7 @@ import "./App.css";
 import Router from "./components/Router";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
+// import BtnUp from "./components/BtnUp/BtnUp";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Header />
       <Router />
       <Footer />
+      {/* <BtnUp /> */}
     </BrowserRouter>
   );
 }

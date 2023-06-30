@@ -13,7 +13,7 @@ const Articles = function () {
   const fetchArticles = useArticles(state => state.fetchArticles)
 
   useEffect(() => {
-    setCurrentPage(1)
+    setCurrentPage('articles')
     fetchArticles()
   }, [setCurrentPage, fetchArticles])
   

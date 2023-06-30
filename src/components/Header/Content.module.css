@@ -2,7 +2,7 @@
     height: 90vh;
 
     display: grid;
-    grid-template-rows: 70% 20%;
+    grid-template-rows: 100%;
     align-items: center;
 }
 

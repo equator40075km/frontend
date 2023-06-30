@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 
 export const useGlobal = create(set => ({
-    currentPage: 0,
+    currentPage: '',
 
     setCurrentPage: (page) => set(() => ({
         currentPage: page
