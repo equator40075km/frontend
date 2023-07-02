@@ -8,6 +8,7 @@ export const links = [
 export const tours = [
     {
       'name': 'Горный Алтай',
-      'dateinfo': 'С Июля по Август 2023'
+      'dateinfo': 'С Июля по Август 2023',
+      'img': 'static/gorniy5.jpg'
     }
 ]

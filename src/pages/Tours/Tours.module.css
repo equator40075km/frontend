@@ -1,0 +1,102 @@
+.container {
+    display: grid;
+    grid-template-rows: auto auto 500px 500px;
+    grid-gap: 60px;
+    align-items: center;
+}
+
+.info {
+    margin: 0 10%;
+}
+.info h1 {
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+.info p {
+    color: rgba(0,0,0,0.7);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+}
+
+.formWrap {
+    margin: 0 10%;
+    height: 100%;
+    width: 80%;
+    border: 3px solid #035629;
+    border-radius: 50px;
+}
+
+.formContent {
+    height: 100%;
+    margin: 0 15%;
+
+    display: grid;
+    grid-template-areas:
+        'title title'
+        'select select'
+        'name email'
+        'btn btn';
+    grid-template-rows: 30% auto auto 30%;
+    grid-template-columns: auto auto;
+    grid-gap: 25px;
+    align-items: center;
+}
+
+.input {
+    width: 100%;
+    height: 50px;
+
+    border: 2px solid rgb(3, 86, 41);
+    border-radius: 50px;
+    color: rgba(3, 86, 41, 0.5);
+    background-color: white;
+
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    padding: 0 15px;
+}
+
+.ftitle {
+    grid-area: title;
+    align-self: end;
+    justify-self: center;
+
+    text-align: center;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.ftour {
+    composes: input;
+    grid-area: select;
+}
+
+.fname {
+    composes: input;
+    grid-area: name;
+}
+
+.femail {
+    composes: input;
+    grid-area: email;
+}
+
+.fbtn {
+    composes: input;
+    grid-area: btn;
+    align-self: flex-start;
+    padding: 0;
+
+    background-color: rgb(3, 86, 41);
+    color: white
+}
+.fbtn:hover {
+    background-color: rgba(3, 86, 41, 0.9);
+}
