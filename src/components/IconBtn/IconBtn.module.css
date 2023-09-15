@@ -1,0 +1,27 @@
+.container {
+    padding: 16px 20px;
+
+    display: grid;
+    grid-template-columns: 30px auto;
+    grid-gap: 20px;
+
+    border: 2px solid #B4B4B4;
+    border-radius: 50px;
+
+    color: #53565A;
+}
+.container:hover {
+    background-color: #035629;
+    border-color: #035629;
+    color: white;
+    cursor: pointer;
+}
+
+.container p {
+    align-self: center;
+
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 120% */
+}

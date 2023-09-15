@@ -11,7 +11,6 @@ const ImageLink = function (props) {
             return
         }
 
-        // TODO: хук для navigate
         if ( props.obj.id )
             navigate(`/articles/${props.obj.id}`)
         else

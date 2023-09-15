@@ -6,14 +6,15 @@ import MainCarousel from '../../components/MainCarousel/MainCarousel';
 import GreenBtn from '../../components/GreenBtn/GreenBtn';
 
 import { useGlobal } from '../../store/global';
-import { useArticles } from '../../store/articles'; 
+import { useArticles } from '../../store/articles';
+import { pages } from '../../constants/constants';
 
 const MainPage = function () {
   const setCurrentPage = useGlobal(state => state.setCurrentPage)
   const fetchArticles = useArticles(state => state.fetchArticles)
 
   useEffect(() => {
-    setCurrentPage('main')
+    setCurrentPage(pages.main)
     fetchArticles()
   })
 
@@ -21,7 +22,7 @@ const MainPage = function () {
     <div className={classes.container}>
       <MainCarousel />
 
-      <div className={classes.travels}>
+      <div className={classes.travels} id='scroll-about'>
         <div className={classes.trDescr}>
           <div className={classes.descrTitle}>
             Путешествуйте вместе с
@@ -57,7 +58,7 @@ const MainPage = function () {
         </div>
       </div>
 
-      <div className={classes.merch}>
+      <div className={classes.merch} id='scroll-merch'>
         <div className={classes.merchL}>
           <div className={classes.merchTitle}>Станьте частью сообщества</div>
           <div className={classes.merchText}>

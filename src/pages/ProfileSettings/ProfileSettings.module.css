@@ -1,0 +1,171 @@
+.container {
+    min-height: calc(90vh - 50px);
+    margin: 0 10% auto 10%;
+
+    display: grid;
+    grid-template-columns: 50px 200px auto;
+    grid-gap: 50px;
+}
+
+.photo {
+    display: grid;
+    grid-template-rows: 200px 50px;
+    grid-gap: 20px;
+}
+
+.photo img {
+    width: 100%;
+    min-height: 200px;
+    max-height: 200px;
+
+    background-size: cover;
+    border-radius: 50%;
+}
+
+.photo button {
+    border: none;
+    border-radius: 50px;
+    background: #E7E7E7;
+
+    color: #0F171F;
+    font-size: 20px;
+    font-weight: 600;
+}
+.photo button:hover {
+    background: #0F171F;
+    color: white;
+}
+
+.back {
+    width: 52px;
+    height: 52px;
+
+    background: url('/public/static/arrow-prev.png');
+    border: 1px solid #D9D9D9;
+    border-radius: 50%;
+}
+.back:hover {
+    background: url('/public/static/arrow-prev-hover.png');
+}
+
+.form {
+    margin: 0 10% auto 10%;
+    display: grid;
+    grid-template-areas:
+        'firstName lastName'
+        'city city'
+        'bday gender'
+        'btn btn';
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
+}
+
+.form p {
+    margin-bottom: 10px;
+
+    color: #53565A;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.input {
+    width: 100%;
+    height: 56px;
+    padding: 16px 20px;
+    border-radius: 50px;
+    border: 2px solid #E7E7E7;
+
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+}
+
+.firstName {
+    grid-area: firstName;
+}
+
+.lastName {
+    grid-area: lastName;
+}
+
+.city {
+    grid-area: city;
+}
+
+.bday {
+    grid-area: bday;
+}
+
+.gender {
+    grid-area: gender;
+    display: grid;
+    grid-template-areas:
+        'p p'
+        'a b';
+    grid-gap: 10px;
+}
+.gender p {
+    margin: 0;
+}
+
+.label {
+    display: inline-block;
+	user-select: none;
+	position: relative;
+
+    width: 100%;
+    height: 56px;
+}
+.label input[type=checkbox] {
+    z-index: -1;
+	opacity: 0;
+	display: block;
+	width: 0;
+	height: 0;
+}
+.label span {
+    display: inline-block;
+	cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 50px;
+    border: 2px solid #E7E7E7;
+	transition: background 0.2s ease;
+
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 14px 0;
+}
+.label input[type=checkbox]:checked + span {
+    background: #E7E7E7;
+}
+.label:hover {
+    background-color: #666;
+}
+
+.p {
+    grid-area: p;
+}
+
+.btn {
+    margin-top: 50px;
+
+    grid-area: btn;
+    justify-self: right;
+    width: 50%;
+    height: 56px;
+    border-radius: 50px;
+    border: none;
+
+    color: white;
+    background-color: #035629;
+
+    font-size: 20px;
+    font-weight: 600;
+}
+.btn:hover {
+    background-color: #0F171F;
+}
+

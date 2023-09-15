@@ -3,10 +3,12 @@ import { Route, Routes } from 'react-router-dom';
 
 import MainPage from '../pages/MainPage/MainPage';
 import Articles from '../pages/Articles/Articles';
-import ArticleDetail from '../pages/ArticleDetail/ArticleDetail'
-import Tours from '../pages/Tours/Tours'
-import Merch from '../pages/Merch/Merch'
-import About from '../pages/About/About';
+import ArticleDetail from '../pages/ArticleDetail/ArticleDetail';
+import Tours from '../pages/Tours/Tours';
+import TourDetail from '../pages/TourDetail/TourDetail';
+import Login from '../pages/Login/Login';
+import Profile from '../pages/Profile/Profile';
+import ProfileSettings from '../pages/ProfileSettings/ProfileSettings';
 
 const Router = function () {
   return (
@@ -15,8 +17,11 @@ const Router = function () {
       <Route path='/articles' element={<Articles />} />
       <Route path='/articles/:id' element={<ArticleDetail />}/>
       <Route path='/tours' element={<Tours />} />
-      <Route path='/merch' element={<Merch />} />
-      <Route path='/about' element={<About />} />
+      <Route path='/tours/:name' element={<TourDetail />}/>
+      <Route path='/login' element={<Login type='sign_in'/>} />
+      <Route path='/signup' element={<Login type='sign_up' />} />
+      <Route path='/profile/:id' element={<Profile />} />
+      <Route path='/profile/:id/settings' element={<ProfileSettings />} />
     </Routes>
   )
 }

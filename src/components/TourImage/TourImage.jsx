@@ -1,9 +1,18 @@
 import React from 'react'
 import classes from './TourImage.module.css'
+import { useNavigate } from 'react-router-dom'
 
 const TourImage = function (props) {
+    const navigate = useNavigate()
+
     const style = {
         backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.1)), url(${props.tour.img})`
+    }
+
+    console.log(props)
+
+    const toUrl = () => {
+        navigate(`/tours/${props.tour.name}`)
     }
 
     return (
@@ -13,10 +22,10 @@ const TourImage = function (props) {
                     <p>{props.tour.dateinfo}</p>
                 </div>
 
-                <h1>{props.tour.name}</h1>
+                <h1>{props.tour.title}</h1>
 
                 <div className={classes.btnWrap}>
-                    <button className={classes.btn}>
+                    <button className={classes.btn} onClick={toUrl}>
                         Начать путешествие
                     </button>
                 </div>

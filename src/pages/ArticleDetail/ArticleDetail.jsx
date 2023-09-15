@@ -3,10 +3,11 @@ import { useParams } from 'react-router-dom'
 import MarkdownView from 'react-showdown'
 import classes from './ArticleDetail.module.css'
 
-import ImageLink from '../../components/ImageLink/ImageLink'
+import ArticleRecommendation from '../../components/Articles/ArticleRecommendation'
 
 import { useArticles } from '../../store/articles'
 import { useGlobal } from '../../store/global'
+import { pages } from '../../constants/constants'
 
 const ArticleDetail = function () {
   const setCurrentPage = useGlobal(state => state.setCurrentPage)
@@ -16,10 +17,8 @@ const ArticleDetail = function () {
   const notFound = article.length === 0
   article = notFound ? undefined : article[0]
 
-  const interests = useArticles(state => state.articles.slice(0, 3))
-
   useEffect(() => {
-    setCurrentPage('articleDetail')
+    setCurrentPage(pages.articleDetail)
   })
 
   return (
@@ -52,12 +51,7 @@ const ArticleDetail = function () {
             <MarkdownView markdown={article.text} />
           </div>
 
-          <div className={classes.interests}>
-            <p className={classes.ititle}>Вам так же может быть интерено</p>
-            {interests.map(article => (
-              <ImageLink obj={article} key={article.id}/>
-            ))}
-          </div>
+          <ArticleRecommendation />
 
         </div>
       }

@@ -1,0 +1,27 @@
+.empty {
+    margin-top: 50px;
+    margin-bottom: auto;
+
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    justify-content: center;
+    align-items: center;
+    grid-gap: 50px;
+    
+    text-align: center;
+}
+
+.empty h1 {
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.empty p {
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: -0.24px;
+}
+
+.container {
+    width: 100%;
+}

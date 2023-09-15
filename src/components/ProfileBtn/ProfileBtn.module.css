@@ -1,0 +1,22 @@
+.container {
+    width: 100%;
+    padding: 14px 20px;
+    margin-bottom: 16px;
+
+    display: grid;
+    grid-template-columns: 24px auto;
+    grid-gap: 20px;
+    align-items: center;
+
+    border-radius: 10px;
+
+    font-size: 20px;
+    font-weight: 500;
+    line-height: normal;
+
+    cursor: pointer;
+}
+
+.container:hover {
+    background: #EAEAEA;
+}

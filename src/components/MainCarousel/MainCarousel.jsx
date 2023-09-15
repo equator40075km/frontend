@@ -9,8 +9,10 @@ import ImageLink from '../ImageLink/ImageLink'
 import GreenBtn from '../GreenBtn/GreenBtn';
 
 import { useArticles } from '../../store/articles';
+import { useNavigate } from 'react-router-dom';
 
 const MainCarousel = function () {
+    const navigate = useNavigate()
     const bsetArticles = useArticles(state => state.articles.slice(0, 6))
 
     const settings = {
@@ -25,6 +27,15 @@ const MainCarousel = function () {
         nextArrow: (<></>),
         prevArrow: (<></>),
     };
+
+    function onBtn() {
+        navigate('/articles/')
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'instant'
+        })
+    }
 
     const slider = React.useRef(null)
 
@@ -43,7 +54,7 @@ const MainCarousel = function () {
                 </Slider>
             </div>
             <div className={classes.btn}>
-                <GreenBtn>
+                <GreenBtn onClick={onBtn}>
                     Посмотреть все
                 </GreenBtn>
             </div>

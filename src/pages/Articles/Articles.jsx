@@ -6,6 +6,7 @@ import ArticlePreview from '../../components/Articles/ArticlePreview'
 
 import { useArticles } from '../../store/articles'
 import { useGlobal } from '../../store/global'
+import { pages } from '../../constants/constants'
 
 const Articles = function () {
   const setCurrentPage = useGlobal(state => state.setCurrentPage)
@@ -13,7 +14,7 @@ const Articles = function () {
   const fetchArticles = useArticles(state => state.fetchArticles)
 
   useEffect(() => {
-    setCurrentPage('articles')
+    setCurrentPage(pages.articles)
     fetchArticles()
   }, [setCurrentPage, fetchArticles])
   

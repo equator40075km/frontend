@@ -5,5 +5,5 @@ export const useGlobal = create(set => ({
 
     setCurrentPage: (page) => set(() => ({
         currentPage: page
-    }))
+    })),
 }))

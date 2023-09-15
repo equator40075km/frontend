@@ -31,11 +31,11 @@
     width: 50px;
     margin: 0 30px 30px auto;
 
-    background-image: url("./../../../public/static/btn-arrow.png");
+    background-image: url("/public/static/btn-arrow.png");
 
     transition: 250ms;
 }
 .btn:hover {
-    background-image: url("./../../../public/static/btn-arrow-hover.png");
+    background-image: url("/public/static/btn-arrow-hover.png");
     cursor: pointer;
 }

@@ -18,6 +18,11 @@
     margin-left: 10%;
 }
 
+.center {
+    margin: 0;
+    justify-content: center;
+}
+
 .dateWrap {
     grid-area: dateWrapper;
     display: inline-flex;
