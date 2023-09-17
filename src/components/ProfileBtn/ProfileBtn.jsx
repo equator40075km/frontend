@@ -1,11 +1,11 @@
 import React from 'react'
 import classes from './ProfileBtn.module.css'
-import { useGlobal } from '../../store/global'
+import { useProfileChapter } from '../../store/profile'
 import { profile_btns } from '../../constants/constants'
 import { useNavigate } from 'react-router-dom'
 
 const ProfileBtn = function (props) {
-    const setChapter = useGlobal(state => state.setProfileChapter)
+    const setProfileChapter = useProfileChapter(state => state.setProfileChapter)
     const navigate = useNavigate()
 
     function onClick() {
@@ -14,7 +14,7 @@ const ProfileBtn = function (props) {
             return
         }
 
-        setChapter(props.name)
+        setProfileChapter(props.name)
     }
 
     return (

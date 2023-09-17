@@ -3,14 +3,19 @@ import classes from './Menu.module.css';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { links, pages } from '../../constants/constants';
+import useFetchProfile from '../../hooks/useFetchProfile';
+
+const testImg = 'https://sun9-65.userapi.com/impg/EiOkSQFnFPpv8vSYYIAvkb7hi2Hlmd7DzkVuew/RYdjiEs_0iM.jpg?size=605x807&quality=95&sign=ef9ac8902558cb477dd7bfd8c63e345f&c_uniq_tag=xz2Gb08Llml-1cFkak-4yPQooN17VauWViGMq4Y--W0&type=album'
 
 const Menu = function (props) {
   const navigate = useNavigate()
+  const profile = useFetchProfile()
 
   const currentPage = props.currentPage
   const showBack = props.showBack
   const link_class = (showBack ? classes.linkWhite : classes.linkBlack) + ' ' + classes.link
   const login_class = (showBack ? classes.loginWhite : classes.loginBlack) + ' ' + classes.login
+  const token = localStorage.getItem('token')
 
   const onLink = (e) => {
     const id = e.target.id
@@ -58,9 +63,14 @@ const Menu = function (props) {
           {links[3].text}
         </p>
       </div>
-      <button className={login_class} id='login' onClick={onLink}>
-        Войти
-      </button>
+      {token
+        ?
+        <a href={`/profile/${profile.user.id}`}><img src={testImg} alt='' className={classes.avatar}/></a>
+        :
+        <button className={login_class} id='login' onClick={onLink}>
+          Войти
+        </button>
+      }
     </div>
   )
 }
