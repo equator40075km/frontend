@@ -76,9 +76,10 @@
 }
 
 .avatar {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     margin-left: auto;
     background-size: cover;
     border-radius: 50%;
+    cursor: pointer;
 }

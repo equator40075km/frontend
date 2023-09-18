@@ -7,11 +7,16 @@ import ProfilePaidArticles from '../../components/ProfilePaidArticles/ProfilePai
 import { useProfileChapter } from '../../store/profile'
 import { profile_btns } from '../../constants/constants'
 import Development from '../../components/Develepment/Development'
+import { useGlobal } from '../../store/global'
+import { pages } from '../../constants/constants';
 
 const Profile = function() {
+    const setCurrentPage = useGlobal(state => state.setCurrentPage)
     const chapter = useProfileChapter(state => state.profileChapter)
 
-    useEffect(() => {}, [chapter])
+    useEffect(() => {
+        setCurrentPage(pages.profile)
+    }, [chapter, setCurrentPage])
 
     function renderChapter() {
         switch (chapter) {

@@ -2,6 +2,7 @@ import { create } from 'zustand'
 import axios from 'axios';
 import { persist } from 'zustand/middleware';
 import { createJSONStorage } from 'zustand/middleware';
+import { url } from '../constants/constants'
 
 export const useArticles = create(
     persist(
@@ -16,9 +17,10 @@ export const useArticles = create(
             console.log("Fetch articles start!")
 
             try {
-                const res = await axios.get('http://0.0.0.0:8000/api/v1/articles/')
+                const res = await axios.get(`${url}articles/`)
 
-                if (res.status !== 200) throw new Error('Failed to fetch articles!')
+                if (res.status !== 200)
+                    throw new Error('Failed to fetch articles!')
 
                 set({ articles: await res.data })
             } catch (error) {

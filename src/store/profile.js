@@ -18,8 +18,8 @@ export const useProfile = create(set => ({
             email: ''
         },
         city: '',
-        bday: null,
-        gender: 'male'
+        bday: '',
+        gender: ''
     },
 
     setProfile: (_profile) => set(() => ({

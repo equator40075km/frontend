@@ -1,6 +1,5 @@
 import axios from "axios";
-
-const url = 'http://0.0.0.0:8000/api/v1/'
+import { url } from '../constants/constants'
 
 export default class ProfileService {
     static async getUserID() {
@@ -14,6 +13,10 @@ export default class ProfileService {
                     token: token
                 }
             })
+
+            if (response.status > 200)
+                return null
+
             return response.data.user_id
         } catch (error) {
             console.log('ERROR getUserId:')
@@ -24,9 +27,7 @@ export default class ProfileService {
 
     static async getProfile(user_id) {
         try {
-            const response = await axios.get(url + 'profiles/' + user_id + '/')
-            // console.log('SUCCESS getProfile:')
-            // console.log(response.data)
+            const response = await axios.get(`${url}profiles/${user_id}/`)
             return response
         } catch (error) {
             console.log('ERROR getProfile:')
@@ -37,10 +38,7 @@ export default class ProfileService {
 
     static async updateProfile(user_id, data) {
         try {
-            const response = await axios.put(
-                url + 'profiles/' + user_id + '/',
-                data
-            )
+            const response = await axios.put(`${url}profiles/${user_id}/`, data)
             return response
         } catch (error) {
             console.log('ERROR updateProfile:')

@@ -12,18 +12,20 @@ function ProfileSettingsForm() {
             last_name: '',
         },
         city: '',
-        bday: null,
-        gender: 'male',
+        bday: '',
+        gender: '',
     })
 
     useEffect(() => {
         setData(profile)
 
-        if (data.gender === 'male') {
+        console.log('FORM useEffect:', profile)
+
+        if (profile.gender === 'male') {
             var malebox = document.getElementById('male')
             malebox.checked = true
         }
-        if (data.gender === 'female') {
+        if (profile.gender === 'female') {
             var femalebox = document.getElementById('female')
             femalebox.checked = true
         }
@@ -112,7 +114,7 @@ function ProfileSettingsForm() {
                 <p>Дата рождения</p>
                 <input
                     type='date'
-                    value={data.date}
+                    value={data.bday || ''}
                     onChange={onChangeInputs}
                     name='bday'
                     className={classes.input}

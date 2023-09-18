@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { links, pages } from '../../constants/constants';
 import useFetchProfile from '../../hooks/useFetchProfile';
 
-const testImg = 'https://sun9-65.userapi.com/impg/EiOkSQFnFPpv8vSYYIAvkb7hi2Hlmd7DzkVuew/RYdjiEs_0iM.jpg?size=605x807&quality=95&sign=ef9ac8902558cb477dd7bfd8c63e345f&c_uniq_tag=xz2Gb08Llml-1cFkak-4yPQooN17VauWViGMq4Y--W0&type=album'
+const testImg = '/static/user-icon.png'
 
 const Menu = function (props) {
   const navigate = useNavigate()
@@ -65,7 +65,12 @@ const Menu = function (props) {
       </div>
       {token
         ?
-        <a href={`/profile/${profile.user.id}`}><img src={testImg} alt='' className={classes.avatar}/></a>
+        <img
+          src={testImg}
+          alt=''
+          className={classes.avatar}
+          onClick={() => navigate(`/profile/${profile.user.id}`)}
+        />
         :
         <button className={login_class} id='login' onClick={onLink}>
           Войти

@@ -11,6 +11,7 @@ export default function useFetchProfile() {
             return
 
         const response = await ProfileService.getProfile(userID)
+
         if (response.status === 200) {
             await setProfile(response.data)
         }
