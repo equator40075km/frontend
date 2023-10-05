@@ -17,3 +17,33 @@
     font-weight: 600;
     line-height: 48px;
 }
+
+@media only screen and (max-width: 1200px) {
+    .interests {
+        grid-template-areas:
+            'interest_title interest_title'
+            '_ _';
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .interests {
+        grid-gap: 15px;
+    }    
+
+    .ititle {
+        font-size: 30px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .interests {
+        grid-template-areas:
+            'interest_title'
+            '_';
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: 10% auto;
+        grid-gap: 10px;
+    }
+}

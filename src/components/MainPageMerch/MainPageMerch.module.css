@@ -1,0 +1,95 @@
+.merch {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 100%;
+    grid-gap: 100px;
+}
+
+.merchL {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto auto;
+    grid-gap: 25px;
+    text-align: center;
+}
+.merchTitle {
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 130%;
+    align-self: flex-end;
+}
+.merchText {
+    align-self: center;
+
+    font-size: 24px;
+    line-height: 150%;
+}
+.merchBtn {
+    margin: 0 auto;
+}
+
+.merchPhoto {
+    position: relative;
+    top: 10%;
+    height: 90%;
+    z-index: 1;
+}
+
+.merchPhoto img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.merchGreen {
+    position: relative;
+    bottom: 90%;
+    left: 20%;
+    height: 90%;
+    z-index: 0;
+
+    background: #035629;
+    border-radius: 20px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .merch {
+        grid-gap: 50px;
+    }
+
+    .merchGreen {
+        left: 10%;
+        bottom: 85%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .merch {
+        margin-top: 20px;
+        grid-template-columns: auto;
+        grid-template-rows: repeat(2, auto);
+    }
+
+    .merchL {
+        grid-template-rows: auto 500px auto auto;
+        grid-gap: 20px;
+    }
+
+    .merchTitle {
+        line-height: normal;
+        font-size: 34px;
+        font-weight: 600;
+        letter-spacing: 0.08ex;
+    }
+
+    .merchPhoto {
+        height: 95%;
+        top: 5%;
+    }
+
+    .merchGreen {
+        left: 5%;
+        bottom: 95%;
+    }
+}

@@ -10,15 +10,17 @@ import GreenBtn from '../GreenBtn/GreenBtn';
 
 import { useArticles } from '../../store/articles';
 import { useNavigate } from 'react-router-dom';
+import useMatchMedia from 'use-match-media-hook';
 
 const MainCarousel = function () {
+    const [medium, small] = useMatchMedia(['(max-width: 1200px)', '(max-width: 710px)'])
     const navigate = useNavigate()
     const bsetArticles = useArticles(state => state.articles.slice(0, 6))
 
     const settings = {
         dots: false,
         speed: 1500,
-        slidesToShow: 3,
+        slidesToShow: small ? 1 : (medium ? 2 : 3),
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 3000,

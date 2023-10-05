@@ -68,10 +68,10 @@ const Login = function (props) {
                     <IconBtn icon='/static/google-icon.png' text={text.google} />
                     <p className={classes.or}>или</p>
                     <form onSubmit={handleSubmit}>
-                        <input name='username' className={classes.input} type='text' placeholder='Ваш логин' />
                         {!isLogin && 
-                            <input name='email' className={classes.input} type='email' placeholder='Ваша почта' />
+                            <input name='username' className={classes.input} type='text' placeholder='Ваш логин' />
                         }
+                        <input name='email' className={classes.input} type='email' placeholder='Ваша почта' />
                         <input ref={passwordInputRef} name='password' className={classes.input} type='password' placeholder={text.password} />
                         <p className={classes.rules}> 
                         Нажимая «Создать», вы принимаете пользовательское соглашение и политику конфиденциальности

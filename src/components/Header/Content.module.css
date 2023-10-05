@@ -98,3 +98,9 @@
 
     border-top: solid 3px rgba(255, 255, 255, 0.75);
 }
+
+@media only screen and (max-width: 1200px) {
+    .curtour {
+        margin-left: 5%;
+    }
+}

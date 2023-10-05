@@ -39,3 +39,13 @@
     background-image: url("/public/static/btn-arrow-hover.png");
     cursor: pointer;
 }
+
+@media only screen and (max-width: 1200px) {
+    .title {
+        margin: 0 15px 15px 30px;
+    }
+
+    .btn {
+        margin: 0 15px 15px auto;
+    }
+}

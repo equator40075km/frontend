@@ -20,6 +20,35 @@ const Footer = function () {
     navigate('/')
   }
 
+  function onLink(e) {
+    const id = e.target.id
+
+    switch (id) {
+    case pages.merch:
+    case pages.about:
+        navigate('/')
+        setTimeout(() => {
+            const scroll_by = document.getElementById('scroll-' + id)
+            scroll_by.scrollIntoView({behavior: 'smooth'})
+        }, 50)
+        return
+    case pages.articles:
+        navigate(links[0].to)
+        break
+    case pages.tours:
+        navigate(links[1].to)
+        break
+    default:
+        return
+    }
+
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'instant'
+    })
+  }
+
   return (
     <>{ currentPage === pages.login
       ?
@@ -32,11 +61,18 @@ const Footer = function () {
             <p>© 2023 Equator • All Rights Reserved</p>
           </div>
           <div className={classes.links}>
-            {links.filter((link => link.page !== 'tours')).map(link => (
-              <Link to={link.page} className={classes.link} key={link.page}>
-                {link.text}
-              </Link>
-            ))}
+            <p id={links[0].page} onClick={onLink}>
+                {links[0].text}
+            </p>
+            <p id={links[1].page} onClick={onLink}>
+                {links[1].text}
+            </p>
+            <p id={links[2].page} onClick={onLink}>
+                {links[2].text}
+            </p>
+            <p id={links[3].page} onClick={onLink}>
+                {links[3].text}
+            </p>
           </div>
           <div className={classes.tours}>
             <Link to='tours' className={classes.link}>Туры</Link>

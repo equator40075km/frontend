@@ -34,7 +34,7 @@
     margin-bottom: auto;
     display: grid;
     grid-template-rows: repeat(3, 1fr);
-    grid-gap: 35px;
+    grid-gap: 30px;
     justify-content: center;
 }
 
@@ -46,7 +46,16 @@
     line-height: normal;
     text-decoration: none;
 }
-.link:hover {
+
+.links p {
+    color: white;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-decoration: none;
+}
+.links p:hover {
     text-decoration: underline;
 }
 
@@ -60,7 +69,7 @@
     margin-bottom: auto;
     display: grid;
     grid-template-rows: repeat(2, 1fr);
-    grid-gap: 35px;
+    grid-gap: 30px;
     justify-content: center;
 }
 
@@ -69,4 +78,48 @@
     display: grid;
     grid-template-rows: repeat(3, 54px);
     grid-gap: 5px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .content {
+        margin: 0 5%;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .content {
+        margin: 0 2%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+        height: auto;
+    }
+
+    .content {
+        padding: 20px 0;
+        grid-template-columns: auto;
+        grid-gap: 20px;
+    }
+
+    .logo {
+        grid-template-rows: auto;
+        grid-template-columns: 80%;
+        justify-content: center;
+    }
+
+    .logo p {
+        display: none;
+    }
+
+    .links, .tours {
+        display: none;
+    }
+
+    .contacts {
+        grid-template-columns: auto;
+        grid-template-rows: none;
+        justify-content: center;
+    }
 }

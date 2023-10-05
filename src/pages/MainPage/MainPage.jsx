@@ -3,11 +3,11 @@ import classes from './MainPage.module.css'
 
 import ImageLink from '../../components/ImageLink/ImageLink'
 import MainCarousel from '../../components/MainCarousel/MainCarousel';
-import GreenBtn from '../../components/GreenBtn/GreenBtn';
 
 import { useGlobal } from '../../store/global';
 import { useArticles } from '../../store/articles';
 import { pages } from '../../constants/constants';
+import MainPageMerch from '../../components/MainPageMerch/MainPageMerch';
 
 const MainPage = function () {
   const setCurrentPage = useGlobal(state => state.setCurrentPage)
@@ -58,24 +58,7 @@ const MainPage = function () {
         </div>
       </div>
 
-      <div className={classes.merch} id='scroll-merch'>
-        <div className={classes.merchL}>
-          <div className={classes.merchTitle}>Станьте частью сообщества</div>
-          <div className={classes.merchText}>
-            Какой то текст про то что мы сделали для вас свой мерч, что бы вы стали ближе к нам
-          </div>
-          <div className={classes.merchBtn}>
-            <GreenBtn>Присоединиться</GreenBtn>
-          </div>
-        </div>
-        
-        <div className={classes.merchR}>
-          <div className={classes.merchPhoto}>
-            <img src='static/merch.jpg' alt='merch' />
-          </div>
-          <div className={classes.merchGreen} />
-        </div>
-      </div>
+      <MainPageMerch />
     </div>
   )
 }

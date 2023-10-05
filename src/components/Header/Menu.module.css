@@ -12,38 +12,6 @@
     width: 100%;
 }
 
-.links {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
-
-    margin: 0 10%;
-
-    text-align: center;
-}
-
-.link {
-    align-self: center;
-    padding: 5px 10px;
-
-    text-decoration: none;
-    font-size: 20px;
-
-    border: 2px solid rgba(0,0,0,0);
-    border-radius: 20px;
-
-    cursor: pointer;
-}
-.link:hover {
-    text-decoration-line: underline;
-}
-.linkWhite {
-    color: white;
-}
-.linkBlack {
-    color: black;
-}
-
 .login {
     min-width: 50%;
     margin-left: auto;
@@ -82,4 +50,46 @@
     background-size: cover;
     border-radius: 50%;
     cursor: pointer;
+}
+
+.burger {
+    display: none;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(207, 207, 207);
+    border-radius: 40%;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 1200px) {
+    .menu {
+        margin: 0 5%;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .menu {
+        grid-template-columns: 30% auto 120px;
+        margin: 0 2%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .menu {
+        margin: 0 2%;
+        display: grid;
+        grid-template-columns: auto 50% auto;
+    }
+
+    .avatar {
+        display: none;
+    }
+
+    .login {
+        display: none;
+    }
+
+    .burger {
+        display: block;
+    }
 }

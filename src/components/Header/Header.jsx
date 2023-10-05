@@ -20,7 +20,8 @@ const Header = function () {
   tour = tour && tour.length ? tour[0] : undefined
 
   return (
-    <>{ currentPage === pages.login
+    <>
+    { currentPage === pages.login
       ?
       <></>
       :
@@ -30,7 +31,8 @@ const Header = function () {
           <Content tour={tour ? tour : tours[0]} main={currentPage === 'main'} />
         }
       </div>
-    } </>
+    }
+    </>
   )
 }
 

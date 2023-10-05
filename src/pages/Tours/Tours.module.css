@@ -55,7 +55,6 @@
     color: rgb(3, 86, 41);
     background-color: white;
     
-
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
@@ -121,4 +120,38 @@ select:not([multiple]) {
 
 .recommeds {
     margin: 0 10%;
+}
+
+@media only screen and (max-width: 1200px) {
+    .container {
+        grid-gap: 30px;
+    }
+
+    .info {
+        margin: 0 5%;
+    }
+
+    .formWrap {
+        width: 90%;
+        margin: 0 5%;
+    }
+
+    .recommeds {
+        margin: 0 5%;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .info {
+        margin: 0 2%;
+    }
+
+    .formWrap {
+        width: 96%;
+        margin: 0 2%;
+    }
+
+    .recommeds {
+        margin: 0 2%;
+    }
 }

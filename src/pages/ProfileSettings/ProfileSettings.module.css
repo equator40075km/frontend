@@ -14,9 +14,8 @@
 }
 
 .photo img {
+    height: 100%;
     width: 100%;
-    min-height: 200px;
-    max-height: 200px;
 
     background-size: cover;
     border-radius: 50%;
@@ -46,4 +45,28 @@
 }
 .back:hover {
     background: url('/public/static/arrow-prev-hover.png');
+}
+
+@media only screen and (max-width: 1200px) {
+    .container {
+        min-height: calc(90vh - 25px);
+        margin: 0 5% auto 5%;
+        grid-gap: 25px;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .container {
+        margin: 0 2% auto 2%;
+        grid-template-columns: 50px 120px auto;
+    }
+
+    .photo {
+        grid-template-rows: 120px 50px;
+        grid-gap: 20px;
+    }
+
+    .photo button {
+        font-size: 18px;
+    }
 }

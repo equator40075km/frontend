@@ -1,9 +1,15 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import classes from './ImageLink.module.css'
+import useMatchMedia from 'use-match-media-hook'
 
 const ImageLink = function (props) {
     const navigate = useNavigate()
+    const [medium] = useMatchMedia(['(max-width: 992px)'])
+    const [bigFont, smallFont] = [
+        medium ? '24px' : '32px',
+        medium ? '18px' : '24px'
+    ]
 
     const toUrl = () => {
         if ( props.obj.external ) {
@@ -25,7 +31,7 @@ const ImageLink = function (props) {
 
     const style = {
         backgroundImage: `linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0)), url(${props.obj.img})`,
-        fontSize: props.obj.big ? `32px` : `24px`
+        fontSize: props.obj.big ? bigFont : smallFont
     }
     
     const parentStyle = props.style ? props.style : ''

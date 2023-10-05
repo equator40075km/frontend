@@ -19,16 +19,18 @@
         'descrTitle descrText'
         'descrLogo  descrText';
     grid-template-columns: 50% auto;
-    grid-template-rows: 40% auto;
+    grid-template-rows: auto 60px;
     grid-gap: 10px;
 }
 
 .trDescr img {
-    width: 75%;
-    object-fit: cover;
+    max-height: 60px;
+    object-fit: contain;
+    justify-self: start;
 }
 
 .descrTitle {
+    align-self: self-end;
     grid-area: descrTitle;
     font-size: 40px;
     font-weight: 600;
@@ -37,9 +39,10 @@
 }
 
 .descrText {
+    margin-top: auto;
     grid-area: descrText;
-    margin-left: 10%;
-    margin-top: 10px;
+    margin-left: 20px;
+    align-self: center;
 
     font-size: 20px;
     font-weight: 500;
@@ -51,71 +54,83 @@
     grid-template-areas: 
         'tours tours'
         '_ __';
-    grid-template-columns: 60% auto;
+    grid-template-columns: 60% calc(40% - 25px);
     grid-template-rows: repeat(2, 1fr);
     grid-gap: 25px;
 }
 
 .toursLink {
     grid-area: tours;
-}
-
-.merch {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 100%;
-    grid-gap: 100px;
-}
-
-.merchL {
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: auto 20% auto;
-    grid-gap: 25px;
-    text-align: center;
-}
-.merchTitle {
-    align-self: flex-end;
-
-    font-size: 48px;
-    font-weight: 600;
-    line-height: 130%;
-}
-.merchText {
-    align-self: center;
-
-    font-size: 24px;
-    line-height: 150%;
-}
-.merchBtn {
-    margin: 0 auto;
-}
-
-.merchR{
-    /* overflow-y: hidden; */
-}
-
-.merchPhoto {
-    position: relative;
-    top: 10%;
-    height: 90%;
-    z-index: 1;
-}
-
-.merchPhoto img {
-    height: 100%;
     width: 100%;
-    object-fit: cover;
-    border-radius: 20px;
 }
 
-.merchGreen {
-    position: relative;
-    bottom: 90%;
-    left: 20%;
-    height: 90%;
-    z-index: 0;
+@media only screen and (max-width: 1365px) {
+    .descrTitle {
+        font-size: 30px;
+    }
+}
 
-    background: #035629;
-    border-radius: 20px;
+@media only screen and (max-width: 1200px) {
+    .container {
+        margin: 0 5% 50px 5%;
+        grid-gap: 50px;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .descrTitle {
+        line-height: normal;
+    }
+
+    .trDescr img {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+        grid-template-rows: 80vh auto auto;
+        grid-gap: 20px;
+    }
+
+    .travels {
+        grid-template-rows: 300px auto;
+        grid-gap: 10px;
+    }
+
+    .trDescr {
+        grid-template-columns: 100%;
+        grid-template-rows: auto 60px auto;
+        grid-template-areas:
+            'descrTitle'
+            'descrLogo'
+            'descrText';
+        grid-gap: 20px;
+    }
+
+    .descrTitle {
+        text-align: center;
+        font-size: 34px;
+    }
+
+    .descrText {
+        margin: 0;
+        text-align: center;
+    }
+
+    .trLinks {
+        grid-template-areas: 
+            'tours'
+            '_'
+            '_';
+        grid-template-columns: auto;
+        grid-template-rows: repeat(3, 200px);
+        grid-gap: 20px;
+    }
+
+    .merch {
+        margin-top: 40px;
+        grid-template-columns: auto;
+        grid-template-rows: repeat(2, auto);
+    }
 }

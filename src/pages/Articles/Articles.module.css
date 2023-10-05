@@ -9,6 +9,7 @@
 }
 
 .bWrap {
+    margin-bottom: 25px;
     display: grid;
     grid-template-areas: 
         "title title"
@@ -37,4 +38,29 @@
 
 li {
     margin-left: 25px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .container {
+        margin: 0 5% 50px 5%;
+    }
+
+    .content {
+        grid-gap: 25px;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .container {
+        margin: 0 2% 50px 2%;
+    }
+
+    .bWrap {
+        grid-gap: 15px;
+        margin-bottom: 10px;
+    }
+
+    .bRight {
+        grid-gap: 15px;
+    }
 }

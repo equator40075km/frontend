@@ -1,0 +1,55 @@
+.container {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 75%;
+    height: 100%;
+    z-index: 100;
+
+    background-color: rgb(3, 86, 41);
+
+    transition: all 0.5s ease 0s;
+}
+.container.active {
+    left: 0;
+}
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    display: grid;
+    grid-template-rows: 10vh repeat(4, 8%);
+    grid-template-columns: 75%;
+    align-items: center;
+    justify-content: left;
+    grid-gap: 2%;
+
+    opacity: 100%;
+}
+
+.wrapper p {
+    margin: 0;
+    height: 100%;
+    
+    background-color: white;
+    border-radius: 0 50px 50px 0;
+
+    display: grid;
+    align-items: center;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.close {
+    margin: 0 auto 0 2.67%;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(207, 207, 207);
+    border-radius: 40%;
+    cursor: pointer;
+}
