@@ -12,7 +12,7 @@ const ArticleRecommendation = function (props) {
     const articles = useArticles(state => state.articles)
 
     // TODO: padding в зависимости от useMatchMedia
-    const padding = props.padding ? {padding: "0 10%"} : {}
+    const padding = props.padding ? (medium ? {padding: "0 5%"} : {padding: "0 10%"}) : {}
 
     // TODO: запрос на получение статей определнной категории, взять 3 шт
     const fetchArticles = useArticles(state => state.fetchArticles)

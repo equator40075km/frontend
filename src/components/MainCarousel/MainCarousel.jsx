@@ -19,7 +19,7 @@ const MainCarousel = function () {
 
     const settings = {
         dots: false,
-        speed: 2000,
+        speed: 1000,
         slidesToShow: small ? 1 : (medium ? 2 : 3),
         slidesToScroll: 1,
         autoplay: true,
@@ -51,7 +51,7 @@ const MainCarousel = function () {
             <div className={classes.slick}>
                 <Slider ref={slider} {...settings}>
                     {bsetArticles.map(article => (
-                        <ImageLink obj={article} key={article.id} className={classes.slide} />
+                        <ImageLink obj={article} key={article.id} />
                     ))}
                 </Slider>
             </div>

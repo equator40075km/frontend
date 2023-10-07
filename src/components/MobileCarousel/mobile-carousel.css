@@ -1,0 +1,13 @@
+.slick-slider {
+    height: 100%;
+    margin-right: 5%;
+}
+
+.slick-list {
+    height: 100%;
+    border-radius: 20px 0 0 20px;
+}
+
+.slick-track {
+    height: 100%;
+}

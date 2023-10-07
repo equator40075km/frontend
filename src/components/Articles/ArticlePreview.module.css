@@ -38,7 +38,7 @@
 .title {
     margin: auto 0 auto 0;;
     font-size: 32px;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .preview {
@@ -60,16 +60,36 @@
     }
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 768px) {
     .container {
-        grid-gap: 30px;
+        height: auto;
+    
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 200px auto;
+        grid-gap: 4px;
+    }
+
+    .content {
+        grid-gap: 10px;
+    }
+
+    .cat {
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        opacity: 0.5;
     }
 
     .title {
-        font-size: 28px;
+        font-size: 24px;
+        line-height: normal;
     }
 
     .preview {
-        font-size: 16px;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 150%; /* 18px */
     }
 }

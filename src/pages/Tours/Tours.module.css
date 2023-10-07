@@ -155,3 +155,44 @@ select:not([multiple]) {
         margin: 0 2%;
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .info {
+        margin: 0 5%;
+    }
+
+    .formWrap {
+        width: 90%;
+        margin: 0 5%;
+
+
+    }
+
+    .formContent {
+        height: 100%;
+        margin: 0 10%;
+        grid-template-rows: auto;
+        grid-template-areas:
+            'title title'
+            'select select'
+            'name name'
+            'email email'
+            'btn btn';
+        grid-gap: 0;
+    }
+
+    .ftitle {
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 130%; /* 31.2px */
+    }
+
+    .recommeds {
+        margin: 0 5%;
+    }
+
+    .container {
+        grid-template-rows: auto 400px 500px 500px;
+    }
+}

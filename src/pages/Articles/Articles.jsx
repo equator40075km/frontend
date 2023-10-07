@@ -8,6 +8,7 @@ import useMatchMedia from 'use-match-media-hook'
 import ImageLink from '../../components/ImageLink/ImageLink'
 import ArticlePreview from '../../components/Articles/ArticlePreview'
 import Development from '../../components/Develepment/Development'
+import MobileCarousel from '../../components/MobileCarousel/MobileCarousel'
 
 const Articles = function () {
   const setCurrentPage = useGlobal(state => state.setCurrentPage)
@@ -25,12 +26,7 @@ const Articles = function () {
       if (articles.length > 2)
         return (
           <div className={classes.bWrap}>
-            <div className={classes.bTitle}>
-              Лучшее за неделю
-            </div>
-            <div className={classes.bLeft}>
-              <ImageLink obj={{...articles[0], big: true}} />
-            </div>
+            <ImageLink obj={{...articles[0], big: true}} />
             <div className={classes.bRight}>
               <ImageLink obj={{...articles[1]}} />
               <ImageLink obj={{...articles[2]}} />
@@ -39,7 +35,7 @@ const Articles = function () {
         )
     } else {
       return (
-        <p>slick</p>
+        <MobileCarousel />
       )
     }
 
@@ -49,12 +45,16 @@ const Articles = function () {
   return (
     <div className={classes.container}>
         <div className={classes.content}>
-          {mainBlock()}
+          <div className={classes.best}>
+            <p className={classes.bTitle}>Лучшее за неделю</p>
+            {mainBlock()}
+          </div>
           
-          
-          {articles.map(article => (
-            <ArticlePreview article={article} key={article.id}/>
-          )) }
+          <div className={classes.articles}>
+            {articles.map(article => (
+              <ArticlePreview {...article} key={article.id}/>
+            )) }
+          </div>
         </div>
     </div>
   )

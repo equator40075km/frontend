@@ -40,6 +40,10 @@ function PhoneLinksMenu() {
             onClose()
             navigate('/login')
             break
+        case 'home':
+            onClose()
+            navigate('/')
+            break
         default:
             return
         }
@@ -65,7 +69,7 @@ function PhoneLinksMenu() {
     return (
         <div className={classes.container} id='phone-links-menu'>
             <div className={classes.close}>
-                <img src='/static/logo-black.png' width={"90%"} alt='equator' />
+                <img src='/static/logo-black.png' width={"90%"} alt='equator' id='home' onClick={onLink} />
                 <img src='/static/burger-close.svg' alt='close' onClick={onClose} />
             </div>
 
