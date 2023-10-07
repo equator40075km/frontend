@@ -1,37 +1,50 @@
-.container {
+.wrapper {
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: 100% 0;
+    grid-template-areas:
+        'back back'
+        '_ __';
+    align-items: end;
+    justify-content: space-around;
+
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.back {
+    grid-area: back;
     height: 100%;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    border-radius: 20px;
-
-    color: white;
-    line-height: 130%;
-
-    display: grid;
-    grid-template-columns: 80% 20%;
-    grid-template-rows: 100% 0;
-    align-items: end;
-    justify-content: space-around;
-
-    transition: 1s;
+    
+    transition: 1.5s ease-out;
 }
-.container:hover {
-    /* background-size: 115% 115%; */
+.back:hover {
+    scale: 1.1;
 }
 
 .title {
+    z-index: 1;
     margin: 0 30px 30px 30px;
+    color: white;
+    line-height: 130%;
 }
 
 .btn {
+    z-index: 1;
     max-height: 50px;
-    height: 50px;
+    min-height: 50px;
     width: 50px;
     margin: 0 30px 30px auto;
 
     background-image: url("/public/static/btn-arrow.png");
+    background-repeat: no-repeat;
 
     transition: 250ms;
 }

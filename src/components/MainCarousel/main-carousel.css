@@ -1,6 +1,10 @@
+.slick-slider {
+    height: 100%;
+}
+
 .slick-list {
     height: 100%;
-    width: calc(100% + 10px);
+    width: calc(100% + 20px); /* + 15px - margin from div:not([class]) in .module.css */
     border-radius: 20px;
 }
 

@@ -2,8 +2,9 @@ import React from 'react'
 import classes from './Menu.module.css';
 import pmclasses from './PhoneLinksMenu.module.css'
 import { Link, useNavigate } from 'react-router-dom';
-
+import { pages } from '../../constants/constants';
 import useFetchProfile from '../../hooks/useFetchProfile';
+
 import MenuLinks from './MenuLinks';
 import PhoneLinksMenu from './PhoneLinksMenu';
 
@@ -16,21 +17,24 @@ const Menu = function (props) {
   const showBack = props.showBack
   const login_class = (showBack ? classes.loginWhite : classes.loginBlack) + ' ' + classes.login
   const token = localStorage.getItem('token')
+  const black = props.currentPage !== pages.main
 
-  const onLink = (e) => {
-    if (e.target.id === 'login')
-      navigate('/login')
-  }
+  const phoneMenu = document.getElementById('phone-links-menu')
+  const bodys = document.getElementsByTagName('body')
 
   const onBurger = () => {
-    const phoneMenu = document.getElementById('phone-links-menu')
     phoneMenu.classList.toggle(pmclasses.active)
+    bodys[0].classList.toggle(pmclasses.block)
+  }
+
+  const onLogin = (e) => {
+    if (e.target.id === 'login')
+      navigate('/login')
   }
 
   return (
     <>
       <div className={classes.menu}>
-        <div className={classes.burger} onClick={onBurger} />
         <Link to='/'>
           <img className={classes.logo}
               src={showBack ? '/static/logo-white.png' : '/static/logo-black.png'}
@@ -46,11 +50,16 @@ const Menu = function (props) {
             onClick={() => navigate(`/profile/${profile.user.id}`)}
           />
           :
-          <button className={login_class} id='login' onClick={onLink}>
+          <button className={login_class} id='login' onClick={onLogin}>
             Войти
           </button>
         }
-        <div className={classes.burger}  />
+        <div className={classes.phoneMenu}>
+          <button className={classes.phoneLogin} style={black ? {color: "black"} : {}} id='login' onClick={onLogin}>
+            Войти
+          </button>
+          <img src={black ? '/static/burger-black.svg' : '/static/burger.svg'} alt='' onClick={onBurger} />
+        </div>
       </div>
       <PhoneLinksMenu />
     </>

@@ -1,5 +1,5 @@
 .container {
-    margin: 50px 10%;
+    margin: 50px 0;
 
     display: grid;
     grid-template-rows: auto auto 500px;
@@ -7,23 +7,22 @@
 
 .header {
     display: grid;
-    grid-template-areas: 
-        'title author'
-        'image image';
-    grid-template-columns: 70% auto;
     grid-template-rows: auto auto;
-    grid-gap: 50px;
+    grid-template-columns: 100%;
+    grid-gap: 25px;
     align-items: center;
 }
 
 .title {
-    grid-area: title;
+    margin: 0 10%;
+    display: grid;
+    grid-template-columns: 70% auto;
+
     font-size: 40px;
     font-weight: 600;
 }
 
 .author {
-    grid-area: author;
     display: grid;
     grid-template-areas:
         'avatar name'
@@ -40,15 +39,10 @@
 }
 
 .image {
-    grid-area: image;
     width: 100%;
-    height: auto;
+    height: 100%;
+    max-height: 90vh;
     object-fit: cover;
-
-    /* position: relative;
-    left: -12.47%;
-    width: 125%;
-    max-height: 80vh; */
 }
 
 .avatar {
@@ -74,7 +68,7 @@
 }
 
 .content {
-    margin: 50px 0;
+    margin: 50px 25%;
     font-size: 20px;
     line-height: 150%;
 }
@@ -84,15 +78,17 @@
 }
 
 .content img {
-    object-fit: contain;
-    margin: 0 auto;
+    width: 100%;
+    max-height: 75vh;
+    object-fit: cover;
+    border-radius: 20px;
 }
 
-.content img[alt=wide] {
+/* .content img[alt=wide] {
     width: 100%;
     height: auto;
     object-fit: cover;
-}
+} */
 
 @media only screen and (max-width: 1200px) {
     .container {

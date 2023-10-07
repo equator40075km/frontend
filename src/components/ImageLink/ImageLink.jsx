@@ -29,17 +29,19 @@ const ImageLink = function (props) {
         })
     }
 
-    const style = {
+    const back = {
         backgroundImage: `linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0)), url(${props.obj.img})`,
-        fontSize: props.obj.big ? bigFont : smallFont
     }
     
-    const parentStyle = props.style ? props.style : ''
+    const font = {
+        fontSize: props.obj.big ? bigFont : smallFont
+    }
 
     return (
-        <div className={classes.container + ' ' + parentStyle} style={style}>
-            <p className={classes.title}>{props.obj.title}</p>
+        <div className={classes.wrapper}>
+            <p className={classes.title} style={font}>{props.obj.title}</p>
             <div className={classes.btn} onClick={toUrl} />
+            <div className={classes.back} style={back} />
         </div>
     )
 }

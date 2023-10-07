@@ -1,32 +1,32 @@
 import React, { useEffect } from 'react'
 import classes from './Articles.module.css'
-
-import ImageLink from '../../components/ImageLink/ImageLink'
-import ArticlePreview from '../../components/Articles/ArticlePreview'
-
 import { useArticles } from '../../store/articles'
 import { useGlobal } from '../../store/global'
 import { pages } from '../../constants/constants'
+import useMatchMedia from 'use-match-media-hook'
+
+import ImageLink from '../../components/ImageLink/ImageLink'
+import ArticlePreview from '../../components/Articles/ArticlePreview'
+import Development from '../../components/Develepment/Development'
 
 const Articles = function () {
   const setCurrentPage = useGlobal(state => state.setCurrentPage)
   const articles = useArticles(state => state.articles)
   const fetchArticles = useArticles(state => state.fetchArticles)
+  const [mobile] = useMatchMedia(['(max-width: 768px)'])
 
   useEffect(() => {
     setCurrentPage(pages.articles)
     fetchArticles()
   }, [setCurrentPage, fetchArticles])
   
-  return (
-    <div className={classes.container}>
-        <div className={classes.content}>
-
-          {articles.length > 2
-          ?
+  function mainBlock() {
+    if (!mobile) {
+      if (articles.length > 2)
+        return (
           <div className={classes.bWrap}>
             <div className={classes.bTitle}>
-                  Лучшее за неделю
+              Лучшее за неделю
             </div>
             <div className={classes.bLeft}>
               <ImageLink obj={{...articles[0], big: true}} />
@@ -36,14 +36,25 @@ const Articles = function () {
               <ImageLink obj={{...articles[2]}} />
             </div>
           </div>
-          :
-          <></>
-          }
+        )
+    } else {
+      return (
+        <p>slick</p>
+      )
+    }
+
+    return (<Development />)
+  }
+
+  return (
+    <div className={classes.container}>
+        <div className={classes.content}>
+          {mainBlock()}
+          
           
           {articles.map(article => (
             <ArticlePreview article={article} key={article.id}/>
           )) }
-
         </div>
     </div>
   )

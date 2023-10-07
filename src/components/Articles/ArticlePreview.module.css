@@ -26,7 +26,7 @@
     height: 100%;
     width: 100%;
     display: grid;
-    grid-template-rows: 15% auto auto;
+    grid-template-rows: 30px auto auto;
     grid-gap: 5px;
 }
 
@@ -44,4 +44,32 @@
 .preview {
     margin-bottom: auto;
     font-size: 20px;
+}
+
+@media only screen and (max-width: 992px) {
+    .container {
+        grid-gap: 30px;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+
+    .preview {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .container {
+        grid-gap: 30px;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+
+    .preview {
+        font-size: 16px;
+    }
 }

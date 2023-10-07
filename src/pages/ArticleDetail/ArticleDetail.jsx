@@ -33,16 +33,16 @@ const ArticleDetail = function () {
 
           <div className={classes.header}>
             <div className={classes.title}>
-              {article.title}
-            </div>
-            <div className={classes.author}>
-              <img
-                src='https://sun9-32.userapi.com/s/v1/ig2/Qp9a7TK4hdjp7H1gosI3uqwdaZB1gaRN-s7QIJP-3orqSmWctI8ztalwcEDmYipeDVc2yEL7-GRafO3c8In_FTOS.jpg?size=100x100&quality=95&crop=0,140,1080,1080&ava=1'
-                alt='equator'
-                className={classes.avatar}
-              />
-              <p className={classes.name}>{article.author}</p>
-              <p className={classes.date}>{article.date ? article.date : '01.01.1970'}</p>
+              <p>{article.title}</p>
+              <div className={classes.author}>
+                <img
+                  src='https://sun9-32.userapi.com/s/v1/ig2/Qp9a7TK4hdjp7H1gosI3uqwdaZB1gaRN-s7QIJP-3orqSmWctI8ztalwcEDmYipeDVc2yEL7-GRafO3c8In_FTOS.jpg?size=100x100&quality=95&crop=0,140,1080,1080&ava=1'
+                  alt='equator'
+                  className={classes.avatar}
+                />
+                <p className={classes.name}>{article.author}</p>
+                <p className={classes.date}>{article.date ? article.date : '01.01.1970'}</p>
+              </div>
             </div>
             <img src={article.img} alt='equator' className={classes.image}/>
           </div>
@@ -51,8 +51,8 @@ const ArticleDetail = function () {
             <MarkdownView markdown={article.text} />
           </div>
 
-          <ArticleRecommendation />
-
+          <ArticleRecommendation padding />
+          
         </div>
       }
     </>
