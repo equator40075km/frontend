@@ -10,7 +10,7 @@ function MainPageMerch() {
         return (
             <div>
                 <div className={classes.merchPhoto}>
-                    <img src='static/merch.jpg' alt='merch' />
+                    <img src='static/merch.png' alt='merch' />
                 </div>
                 <div className={classes.merchGreen} />
             </div>
