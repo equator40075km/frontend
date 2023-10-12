@@ -9,10 +9,6 @@ function ProfileFavorites() {
   const navigate = useNavigate()
   const articles = useArticles(state => state.articles)
 
-  const onBtn = () => {
-    navigate('/articles')
-  }
-
   return (
     <>
       {articles.length === 0
@@ -20,10 +16,12 @@ function ProfileFavorites() {
       <div className={classes.empty}>
         <h1>У вас пока нет избранных статей</h1>
         <p>Отмечайте значком ♡ статьи и они появятся здесь</p>
-        <GreenBtn onClick={onBtn}>Найти статьи</GreenBtn>
+        <GreenBtn onClick={() => {navigate('/articles')}}>
+          Найти статьи
+        </GreenBtn>
       </div>
       :
-      <div className={classes.container}>
+      <div>
         {articles.map(article => (
           <FavoriteArticle {...article} key={article.id}/>
         ))}

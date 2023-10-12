@@ -4,11 +4,10 @@ import "./mobile-carousel.css"
 import Slider from 'react-slick';
 import { useArticles } from '../../store/articles';
 
-
 import ImageLink from '../ImageLink/ImageLink';
 
 function MobileCarousel() {
-    const articles = useArticles(state => state.articles.slice(0, 6))
+    const articles = useArticles(state => state.articles.slice(0, 3))
 
     const settings = {
         infinite: false,

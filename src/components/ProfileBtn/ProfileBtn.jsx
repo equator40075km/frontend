@@ -1,21 +1,55 @@
 import React from 'react'
 import classes from './ProfileBtn.module.css'
+import profile_classes from '../Header/PhoneProfileMenu.module.css';
+import menu_classes from '../Header/Menu.module.css'
+import pmclasses from '../Header/PhoneLinksMenu.module.css'
 import { useProfileChapter } from '../../store/profile'
 import { profile_btns } from '../../constants/constants'
 import { useNavigate } from 'react-router-dom'
 import LoginService from '../../API/LoginService'
 import { useGlobal } from '../../store/global'
 import { pages } from '../../constants/constants'
+import useMatchMedia from 'use-match-media-hook'
 
 const ProfileBtn = function (props) {
-    const setProfileChapter = useProfileChapter(state => state.setProfileChapter)
+    const {profileChapter, setProfileChapter} = useProfileChapter()
     const setCurrentPage = useGlobal(state => state.setCurrentPage)
+    const currentPage = useGlobal(state => state.currentPage)
+    const setWhiteMenu = useGlobal(state => state.setWhiteMenu)
     const navigate = useNavigate()
+    const [mobile] = useMatchMedia(['(max-width: 768px)'])
+    const menu = document.getElementById('menu')
+    const bodys = document.getElementsByTagName('body')
+
+    const btnClass = profileChapter === props.name
+                        ? classes.container + ' ' + classes.hover
+                        : classes.container;
+
+    function onProfile() {
+        const profileMenu = document.getElementById('profile-menu')
+
+        console.log(profileMenu)
+
+        if (menu.classList.contains(menu_classes.fixed)) {
+            setWhiteMenu(
+                currentPage === pages.main ||
+                currentPage === pages.tourDetail
+            )
+        } else {
+            setWhiteMenu(false)
+        }
+
+        bodys[0].classList.toggle(pmclasses.block)
+        profileMenu.classList.toggle(profile_classes.active)
+        menu.classList.toggle(menu_classes.fixed)
+    }
 
     async function onClick() {
         switch (props.name) {
         case profile_btns.settings.name:
-            navigate('settings')
+            navigate('/profile/1/settings') // TODO:
+            if (mobile)
+                onProfile()
             break
         case profile_btns.exit.name:
             await LoginService.logout()
@@ -24,13 +58,17 @@ const ProfileBtn = function (props) {
             setProfileChapter(profile_btns.favorites.name)
             return
         default:
+            if (mobile) {
+                navigate('/profile/1') // TODO:
+                onProfile()
+            }
         }
 
         setProfileChapter(props.name)
     }
 
     return (
-        <div className={classes.container} onClick={onClick} >
+        <div className={btnClass} onClick={onClick}>
             <img src={props.icon} alt='' />
             {props.text}
         </div>

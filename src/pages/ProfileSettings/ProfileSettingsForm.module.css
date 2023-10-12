@@ -139,3 +139,54 @@
         font-size: 18px;
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .form {
+        margin: 0 5% auto 5%;
+        grid-template-columns: 100%;
+        grid-template-rows: auto;
+        grid-gap: 10px;
+        grid-template-areas: none;
+    }
+
+    .input {
+        height: 50px;
+    }
+
+    .btn {
+        grid-area: auto;
+
+        margin: 40px 0;
+
+        width: 100%;
+        height: 56px;
+        border-radius: 50px;
+        border: none;
+    
+        color: white;
+        background-color: #035629;
+    
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .firstName {
+        grid-area: auto;
+    }
+    
+    .lastName {
+        grid-area: auto;
+    }
+    
+    .city {
+        grid-area: auto;
+    }
+    
+    .bday {
+        grid-area: auto;
+    }
+    
+    .gender {
+        grid-area: auto;
+    }
+}

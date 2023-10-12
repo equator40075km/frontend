@@ -11,6 +11,7 @@ import { pages } from '../../constants/constants'
 
 const ArticleDetail = function () {
   const setCurrentPage = useGlobal(state => state.setCurrentPage)
+  const setWhiteMenu = useGlobal(state => state.setWhiteMenu)
   
   const params = useParams()
   let article = useArticles(state => state.articles.filter(article => article.id === Number(params.id)))
@@ -19,6 +20,7 @@ const ArticleDetail = function () {
 
   useEffect(() => {
     setCurrentPage(pages.articleDetail)
+    setWhiteMenu(false)
   })
 
   return (

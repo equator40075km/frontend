@@ -8,9 +8,11 @@ import ArticleRecommendation from '../../components/Articles/ArticleRecommendati
 
 const Tours = function () {
     const setCurrentPage = useGlobal(state => state.setCurrentPage)
+    const setWhiteMenu = useGlobal(state => state.setWhiteMenu)
 
     useEffect(() => {
         setCurrentPage(pages.tours)
+        setWhiteMenu(false)
     })
 
     const onBookBtn = (e) => {

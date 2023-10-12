@@ -26,7 +26,7 @@ const Header = function () {
       <></>
       :
       <div className={classes.header} style={backStyle}>
-        <Menu currentPage={currentPage} showBack={showBack}/>
+        <Menu />
         {showBack &&
           <Content tour={tour ? tour : tours[0]} main={currentPage === 'main'} />
         }

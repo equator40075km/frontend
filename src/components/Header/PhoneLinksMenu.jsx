@@ -2,26 +2,29 @@ import React from 'react'
 import classes from './PhoneLinksMenu.module.css'
 import { useNavigate } from 'react-router-dom';
 import { links, pages } from '../../constants/constants';
+import useFetchProfile from '../../hooks/useFetchProfile';
 
 import GreenBtn from '../../components/GreenBtn/GreenBtn'
 
 function PhoneLinksMenu() {
     const navigate = useNavigate()
-    const phoneMenu = document.getElementById('phone-links-menu')
     const bodys = document.getElementsByTagName('body')
+    const token = localStorage.getItem('token')
+    const profile = useFetchProfile()
 
     function onClose() {
+        const phoneMenu = document.getElementById('phone-links-menu')
         phoneMenu.classList.toggle(classes.active)
         bodys[0].classList.toggle(classes.block)
     }
 
     function onLink(e) {
         const id = e.target.id
-    
+        onClose()
+
         switch (id) {
         case pages.merch:
         case pages.about:
-            onClose()
             navigate('/')
             setTimeout(() => {
                 const scroll_by = document.getElementById('scroll-' + id)
@@ -29,20 +32,19 @@ function PhoneLinksMenu() {
             }, 50)
             return
         case pages.articles:
-            onClose()
             navigate(links[0].to)
             break
         case pages.tours:
-            onClose()
             navigate(links[1].to)
             break
         case 'login':
-            onClose()
             navigate('/login')
             break
         case 'home':
-            onClose()
             navigate('/')
+            break
+        case 'user-icon':
+            navigate(`/profile/${profile.user.id}`)
             break
         default:
             return
@@ -63,6 +65,30 @@ function PhoneLinksMenu() {
             break
         default:
             return
+        }
+    }
+
+    function loginBlock() {
+        if (token) {
+            return (
+                <img
+                    src='/static/user-icon.png'
+                    alt='icon'
+                    className={classes.userIcon}
+                    id='user-icon'
+                    onClick={onLink}
+                />
+            )
+        } else {
+            return (
+                <GreenBtn
+                    id='login'
+                    style={{width: "50%", justifySelf: "right"}}
+                    onClick={onLink}
+                >
+                    Войти
+                </GreenBtn>
+            )
         }
     }
 
@@ -88,13 +114,7 @@ function PhoneLinksMenu() {
                         {links[3].text}
                     </p>
                 </div>
-                <GreenBtn
-                    id='login'
-                    style={{width: "50%", justifySelf: "right"}}
-                    onClick={onLink}
-                >
-                    Войти
-                </GreenBtn>
+                {loginBlock()}
                 <div className={classes.contacts}>
                     <div className={classes.contact} onClick={onContact}>
                         <img id='vk' src='/static/burger-vk.svg' alt='vk' />

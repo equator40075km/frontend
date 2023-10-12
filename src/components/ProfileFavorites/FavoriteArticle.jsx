@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import classes from './FavoriteArticle.module.css'
+import useMatchMedia from 'use-match-media-hook'
 
 function FavoriteArticle(props) {
     const [like, setLike] = useState(true)
     const [icon, setIcon] = useState('/static/like-active.png')
+    const [mobile] = useMatchMedia(['(max-width: 768px)'])
 
     useEffect(() => {
         if (like)
@@ -30,6 +32,7 @@ function FavoriteArticle(props) {
 
     return (
         <div className={classes.container}>
+            {mobile && <img src={props.img} alt='' />}
             <div className={classes.info}>
                 <div className={classes.cat}>
                     <p>{props.cat}</p>
@@ -43,7 +46,7 @@ function FavoriteArticle(props) {
                 <p className={classes.title}>{props.title}</p>
                 <p className={classes.preview}>{props.preview}</p>
             </div>
-            <img src={props.img} alt='' />
+            {!mobile && <img src={props.img} alt='' />}
         </div>
     )
 }

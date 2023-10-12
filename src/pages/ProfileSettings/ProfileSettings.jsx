@@ -1,17 +1,28 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import classes from './ProfileSettings.module.css'
 import { useNavigate } from 'react-router-dom'
 import ProfileSettingsForm from './ProfileSettingsForm'
 import useUserID from '../../hooks/useUserID'
 import useFetchProfile from '../../hooks/useFetchProfile'
+import { useGlobal } from '../../store/global'
+import useMatchMedia from 'use-match-media-hook'
+import { pages } from '../../constants/constants'
 
 const testImg = '/static/user-icon.png'
 
 function ProfileSettings() {
     const userID = useUserID()
     const navigate = useNavigate()
+    const setWhiteMenu = useGlobal(state => state.setWhiteMenu)
+    const setCurrentPage = useGlobal(state => state.setCurrentPage)
+    const [mobile] = useMatchMedia(['(max-width: 768px)'])
 
     useFetchProfile()
+
+    useEffect(() => {
+        setCurrentPage(pages.profile)
+        setWhiteMenu(false)
+    }, [setWhiteMenu, setCurrentPage])
 
     function onBack() {
         navigate(`/profile/${userID}`)
@@ -24,7 +35,7 @@ function ProfileSettings() {
 
     return (
         <div className={classes.container}>
-            <div className={classes.back} onClick={onBack}/>
+            {!mobile && <div className={classes.back} onClick={onBack}/>}
             <div className={classes.photo}>
                 <img src={testImg} alt='' />
                 <button onClick={onChangePhoto}>

@@ -16,7 +16,10 @@
 
     cursor: pointer;
 }
-
 .container:hover {
+    background: #EAEAEA;
+}
+
+.hover {
     background: #EAEAEA;
 }

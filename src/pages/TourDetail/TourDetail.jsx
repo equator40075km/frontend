@@ -9,9 +9,11 @@ const TourDetail = function () {
     let tour = tours.filter(tour => tour.name === params.name)
     tour = tour && tour.length ? tour[0] : undefined
     const setCurrentPage = useGlobal(state => state.setCurrentPage)
+    const setWhiteMenu = useGlobal(state => state.setWhiteMenu)
 
     useEffect(() => {
         setCurrentPage(pages.tourDetail)
+        setWhiteMenu(true)
     })
 
     return (

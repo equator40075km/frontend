@@ -11,10 +11,12 @@ import MainPageMerch from '../../components/MainPageMerch/MainPageMerch';
 
 const MainPage = function () {
   const setCurrentPage = useGlobal(state => state.setCurrentPage)
+  const setWhiteMenu = useGlobal(state => state.setWhiteMenu)
   const fetchArticles = useArticles(state => state.fetchArticles)
 
   useEffect(() => {
     setCurrentPage(pages.main)
+    setWhiteMenu(true)
     fetchArticles()
   })
 

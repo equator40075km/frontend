@@ -12,14 +12,16 @@ import MobileCarousel from '../../components/MobileCarousel/MobileCarousel'
 
 const Articles = function () {
   const setCurrentPage = useGlobal(state => state.setCurrentPage)
+  const setWhiteMenu = useGlobal(state => state.setWhiteMenu)
   const articles = useArticles(state => state.articles)
   const fetchArticles = useArticles(state => state.fetchArticles)
   const [mobile] = useMatchMedia(['(max-width: 768px)'])
 
   useEffect(() => {
     setCurrentPage(pages.articles)
+    setWhiteMenu(false)
     fetchArticles()
-  }, [setCurrentPage, fetchArticles])
+  }, [setCurrentPage, fetchArticles, setWhiteMenu])
   
   function mainBlock() {
     if (!mobile) {

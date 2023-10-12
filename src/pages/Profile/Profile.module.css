@@ -18,3 +18,11 @@
         margin: 0 2% 30px 2%;
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .container {
+        margin: 0 5% 30px 5%;
+        min-height: calc(90vh - 30px);
+        grid-template-columns: auto;
+    }
+}
