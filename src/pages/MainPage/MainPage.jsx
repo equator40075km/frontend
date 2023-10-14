@@ -29,10 +29,10 @@ const MainPage = function () {
           <div className={classes.descrTitle}>
             Путешествуйте вместе с
           </div>
-          <div className={classes.descrText}>
+          {/* <div className={classes.descrText}>
             Текст о том почему экватор такие классные и стоит выбирать именно их
-          </div>
-          <img src='static/logo-black.png' alt='' />
+          </div> */}
+          <img src='static/logo-black.svg' alt='' />
         </div>
         <div className={classes.trLinks}>
           <div className={classes.toursLink}>

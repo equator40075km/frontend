@@ -1,4 +1,6 @@
 .menu {
+    z-index: 1;
+
     height: 10vh;
 
     display: grid;

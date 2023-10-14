@@ -53,26 +53,26 @@ export const profile_btns = {
     favorites: {
         name: 'favorites',
         text: 'Избранное',
-        icon: '/static/icon-favorites.png'
+        icon: '/static/icon-favorites.svg'
     },
     trips: {
         name: 'trips',
         text: 'Мои поездки',
-        icon: '/static/icon-trips.png'
+        icon: '/static/icon-trips.svg'
     },
     paid_articles: {
         name: 'paid_articles',
         text: 'Платные статьи',
-        icon: '/static/icon-paid.png'
+        icon: '/static/icon-paid.svg'
     },
     settings: {
         name: 'settings',
         text: 'Настройки',
-        icon: '/static/icon-settings.png'
+        icon: '/static/icon-settings.svg'
     },
     exit: {
         name: 'exit',
         text: 'Выход',
-        icon: '/static/icon-exit.png'
+        icon: '/static/icon-exit.svg'
     },
 }

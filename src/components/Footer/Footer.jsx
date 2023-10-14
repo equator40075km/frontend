@@ -57,7 +57,7 @@ const Footer = function () {
       <div className={classes.container}>
         <div className={classes.content}>
           <div className={classes.logo}>
-            <img src='/static/logo-white.png' alt='EQUATOR' onClick={toHome}/>
+            <img src='/static/logo-white.svg' alt='EQUATOR' onClick={toHome}/>
             <p>© 2023 Equator • All Rights Reserved</p>
           </div>
           <div className={classes.links}>

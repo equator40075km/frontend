@@ -1,13 +1,22 @@
-.slick-slider {
+.main-carousel {
+    grid-area: slider;
+}
+
+.main-carousel .slick-slider {
     height: 100%;
 }
 
-.slick-list {
+.main-carousel div:not([class]) {
     height: 100%;
-    width: calc(100% + 15px); /* + 15px - margin from div:not([class]) in .module.css */
+    margin-right: 20px;
+}
+
+.main-carousel .slick-list {
+    height: 100%;
+    width: calc(100% + 20px); /* + 15px - margin from div:not([class]) in .module.css */
     border-radius: 20px;
 }
 
-.slick-track {
+.main-carousel .slick-track {
     height: 100%;
 }

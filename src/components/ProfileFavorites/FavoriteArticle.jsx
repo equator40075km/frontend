@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import classes from './FavoriteArticle.module.css'
 import useMatchMedia from 'use-match-media-hook'
+import { useNavigate } from 'react-router-dom'
+import GreenBtn from '../GreenBtn/GreenBtn'
 
 function FavoriteArticle(props) {
+    const navigate = useNavigate()
     const [like, setLike] = useState(true)
     const [icon, setIcon] = useState('/static/like-active.png')
     const [mobile] = useMatchMedia(['(max-width: 768px)'])
@@ -45,6 +48,12 @@ function FavoriteArticle(props) {
                 
                 <p className={classes.title}>{props.title}</p>
                 <p className={classes.preview}>{props.preview}</p>
+                <GreenBtn
+                    style={{padding: "8px 10px", height: "40px"}}
+                    onClick={() => {navigate(`/articles/${props.id}`)}}
+                >
+                    Открыть
+                </GreenBtn>
             </div>
             {!mobile && <img src={props.img} alt='' />}
         </div>

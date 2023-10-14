@@ -10,7 +10,7 @@ function MainPageMerch() {
         return (
             <div>
                 <div className={classes.merchPhoto}>
-                    <img src='static/merch.png' alt='merch' />
+                    <img src='static/merch3.png' alt='merch' />
                 </div>
                 <div className={classes.merchGreen} />
             </div>
@@ -23,10 +23,12 @@ function MainPageMerch() {
                 <div className={classes.merchTitle}>Станьте частью сообщества</div>
                 {mobile && merchPhoto()}
                 <div className={classes.merchText}>
-                    Какой то текст про то что мы сделали для вас свой мерч, что бы вы стали ближе к нам
+                    Скоро запустим первую линейку мерча. Присоединяйтесь и следите за новостями!
                 </div>
                 <div className={classes.merchBtn}>
-                    <GreenBtn>Присоединиться</GreenBtn>
+                    <GreenBtn onClick={() => {window.open("https://vk.com/aequator", "_blank")}}>
+                        Присоединиться
+                    </GreenBtn>
                 </div>
             </div>
             

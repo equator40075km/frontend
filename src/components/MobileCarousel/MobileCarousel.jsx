@@ -1,5 +1,4 @@
 import React from 'react'
-import classes from './MobileCarousel.module.css'
 import "./mobile-carousel.css"
 import Slider from 'react-slick';
 import { useArticles } from '../../store/articles';
@@ -20,7 +19,7 @@ function MobileCarousel() {
     }
 
     return (
-        <div className={classes.wrapper}>
+        <div className="articles-carousel">
             <Slider {...settings}>
                 {articles.map(article => (
                     <ImageLink obj={article} key={article.id} />

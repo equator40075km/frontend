@@ -48,7 +48,8 @@ const MainCarousel = function () {
                 <div className={classes.arrowPrev} onClick={() => slider?.current?.slickPrev()} />
                 <div className={classes.arrowNext} onClick={() => slider?.current?.slickNext()} />
             </div>
-            <div className={classes.slick}>
+            {/* <div className={classes.slick}> */}
+            <div className="main-carousel">
                 <Slider ref={slider} {...settings}>
                     {bsetArticles.map(article => (
                         <ImageLink obj={article} key={article.id} />

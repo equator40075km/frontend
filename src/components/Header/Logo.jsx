@@ -42,7 +42,7 @@ function Logo() {
 
     return (
         <img className={classes.logo}
-            src={whiteMenu ? '/static/logo-white.png' : '/static/logo-black.png'}
+            src={whiteMenu ? '/static/logo-white.svg' : '/static/logo-black.svg'}
             alt='equator'
             onClick={onLogo}
         />

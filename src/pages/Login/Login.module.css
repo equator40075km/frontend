@@ -24,7 +24,7 @@
     width: 300px;
     margin: 0 auto;
 
-    background-image: url('/public/static/logo-white.png');
+    background-image: url('/public/static/logo-white.svg');
     background-size: cover;
 
     cursor: pointer;

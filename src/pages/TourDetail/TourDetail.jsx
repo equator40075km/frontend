@@ -3,6 +3,7 @@ import classes from './TourDetail.module.css'
 import { useParams } from 'react-router-dom'
 import { useGlobal } from '../../store/global'
 import { tours, pages } from '../../constants/constants'
+import Development from '../../components/Develepment/Development'
 
 const TourDetail = function () {
     const params = useParams()
@@ -20,9 +21,13 @@ const TourDetail = function () {
         <>
         {tour
             ? 
-            <div>{tour.title}</div>
+            <div className={classes.container}>
+                <h1>{tour.title}</h1>
+                <hr/>
+                <Development />
+            </div>
             :
-            <div>Тур не найден</div>
+            <h1>Не удалось найти направление</h1>
         }
         </>
     )
