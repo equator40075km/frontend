@@ -9,8 +9,8 @@ export default class ProfileService {
 
         try {
             const response = await axios.get(`${url}token/`, {
-                params: {
-                    token: token
+                headers: {
+                    Authorization: 'Token ' + token
                 }
             })
 
@@ -26,8 +26,16 @@ export default class ProfileService {
     }
 
     static async getProfile(user_id) {
+        const token = localStorage.getItem('token')
+        if (!token)
+            return null
+
         try {
-            const response = await axios.get(`${url}profiles/${user_id}/`)
+            const response = await axios.get(`${url}profiles/${user_id}/`, {
+                headers: {
+                    Authorization: 'Token ' + token
+                }
+            })
             return response
         } catch (error) {
             console.log('ERROR getProfile:')

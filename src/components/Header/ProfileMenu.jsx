@@ -2,12 +2,12 @@ import React from 'react'
 import classes from './ProfileMenu.module.css'
 import ProfileBtn from '../ProfileBtn/ProfileBtn'
 import { profile_btns } from '../../constants/constants'
-import useFetchProfile from '../../hooks/useFetchProfile'
+import { useProfile } from '../../store/profile'
 
 const testImg = '/static/user-icon.png'
 
 const ProfileMenu = function () {
-    const profile = useFetchProfile()
+    const profile = useProfile(state => state.profile)
 
     return (
         <div className={classes.container}>

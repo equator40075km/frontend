@@ -21,8 +21,8 @@ const Router = function () {
       <Route path='/tours/:name' element={<TourDetail />}/>
       <Route path='/login' element={<Login type='sign_in'/>} />
       <Route path='/signup' element={<Login type='sign_up' />} />
-      <Route path='/profile/:id' element={<Profile />} />
-      <Route path='/profile/:id/settings' element={<ProfileSettings />} />
+      <Route path='/profile' element={<Profile />} />
+      <Route path='/profile/settings' element={<ProfileSettings />} />
       <Route path='/merch' element={<Merch />} />
     </Routes>
   )

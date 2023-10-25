@@ -18,6 +18,7 @@ const ProfileBtn = function (props) {
     const setWhiteMenu = useGlobal(state => state.setWhiteMenu)
     const navigate = useNavigate()
     const [mobile] = useMatchMedia(['(max-width: 768px)'])
+
     const menu = document.getElementById('menu')
     const bodys = document.getElementsByTagName('body')
 
@@ -27,8 +28,6 @@ const ProfileBtn = function (props) {
 
     function onProfile() {
         const profileMenu = document.getElementById('profile-menu')
-
-        console.log(profileMenu)
 
         if (menu.classList.contains(menu_classes.fixed)) {
             setWhiteMenu(
@@ -47,7 +46,7 @@ const ProfileBtn = function (props) {
     async function onClick() {
         switch (props.name) {
         case profile_btns.settings.name:
-            navigate('/profile/1/settings') // TODO:
+            navigate('/profile/settings')
             if (mobile)
                 onProfile()
             break
@@ -59,7 +58,7 @@ const ProfileBtn = function (props) {
             return
         default:
             if (mobile) {
-                navigate('/profile/1') // TODO:
+                navigate('/profile')
                 onProfile()
             }
         }
