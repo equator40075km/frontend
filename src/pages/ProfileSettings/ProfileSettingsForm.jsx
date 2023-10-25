@@ -19,8 +19,6 @@ function ProfileSettingsForm() {
     useEffect(() => {
         setData(profile)
 
-        console.log('FORM useEffect:', profile)
-
         if (profile.gender === 'male') {
             var malebox = document.getElementById('male')
             malebox.checked = true
@@ -69,6 +67,7 @@ function ProfileSettingsForm() {
 
     async function onSubmit(event) {
         event.preventDefault()
+
         const response = await ProfileService.updateProfile(profile.user.id, data)
         if ( response.status === 200 ) {
             setProfile(response.data)

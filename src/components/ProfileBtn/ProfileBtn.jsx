@@ -55,6 +55,8 @@ const ProfileBtn = function (props) {
             await setCurrentPage(pages.main)
             navigate('/')
             setProfileChapter(profile_btns.favorites.name)
+            if (mobile)
+                onProfile()
             return
         default:
             if (mobile) {

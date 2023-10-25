@@ -9,8 +9,6 @@ export default function useFetchProfile() {
     
     useEffect(() => {
         async function fetchProfile() {
-            console.log('FETCH PROFILE')
-    
             if (!userID)
                 return
     

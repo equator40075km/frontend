@@ -8,8 +8,6 @@ export default function useUserID() {
 
     useEffect(() => {
         async function setID() {
-            console.log('FETCH USER ID')
-
             const response = await ProfileService.getUserID()
             if (response)
                 await setUserID(response)

@@ -3,12 +3,15 @@ import classes from './MenuLinks.module.css'
 import { Link, useNavigate } from 'react-router-dom';
 import { links, pages } from '../../constants/constants';
 import { useGlobal } from '../../store/global';
+import useFetchProfile from '../../hooks/useFetchProfile'
 
 function MenuLinks() {
     const navigate = useNavigate()
     const currentPage = useGlobal(state => state.currentPage)
     const whiteMenu = useGlobal(state => state.whiteMenu)
     const link_class = (whiteMenu ? classes.linkWhite : classes.linkBlack) + ' ' + classes.link
+    
+    useFetchProfile()
 
     const onLink = (e) => {
         const id = e.target.id

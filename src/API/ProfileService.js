@@ -45,8 +45,16 @@ export default class ProfileService {
     }
 
     static async updateProfile(user_id, data) {
+        const token = localStorage.getItem('token')
+        if (!token)
+            return null
+
         try {
-            const response = await axios.put(`${url}profiles/${user_id}/`, data)
+            const response = await axios.put(`${url}profiles/${user_id}/`, data, {
+                headers: {
+                    Authorization: 'Token ' + token
+                }
+            })
             return response
         } catch (error) {
             console.log('ERROR updateProfile:')

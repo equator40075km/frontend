@@ -19,7 +19,6 @@ function PhoneMenu() {
 
     const token = localStorage.getItem('token')
     const bodys = document.getElementsByTagName('body')
-    const menu = document.getElementById('menu')
 
     function onBurger() {
         const phoneLinksMenu = document.getElementById('phone-links-menu')
@@ -29,6 +28,7 @@ function PhoneMenu() {
 
     function onProfile() {
         const profileMenu = document.getElementById('profile-menu')
+        const menu = document.getElementById('menu')
 
         if (menu.classList.contains(menu_classes.fixed)) {
             setWhiteMenu(
