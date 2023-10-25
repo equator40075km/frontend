@@ -6,11 +6,6 @@
 
     margin-bottom: 40px;
     padding-left: 20px;
-
-    border-left: 2px solid rgba(3,86,41,0);
-}
-.container:hover {
-    border-left: 2px solid rgba(3,86,41,100);
 }
 
 .info {
@@ -66,8 +61,5 @@
         grid-template-columns: auto;
         grid-template-rows: 200px auto;
         padding: 0; 
-    }
-    .container:hover {
-        border-color: rgba(0,0,0,0);
     }
 }

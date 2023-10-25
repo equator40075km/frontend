@@ -26,3 +26,13 @@
     font-weight: 600;
     line-height: 24px; /* 120% */
 }
+
+@media only screen and (max-width: 768px) {
+    .container {
+        padding: 10px 20px;
+    }
+
+    .container p {
+        font-size: 14px;
+    }
+}

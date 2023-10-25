@@ -9,6 +9,7 @@ import TourDetail from '../pages/TourDetail/TourDetail';
 import Login from '../pages/Login/Login';
 import Profile from '../pages/Profile/Profile';
 import ProfileSettings from '../pages/ProfileSettings/ProfileSettings';
+import Merch from '../pages/Merch/Merch';
 
 const Router = function () {
   return (
@@ -22,6 +23,7 @@ const Router = function () {
       <Route path='/signup' element={<Login type='sign_up' />} />
       <Route path='/profile/:id' element={<Profile />} />
       <Route path='/profile/:id/settings' element={<ProfileSettings />} />
+      <Route path='/merch' element={<Merch />} />
     </Routes>
   )
 }

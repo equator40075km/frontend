@@ -29,18 +29,25 @@ function MenuLinks() {
                 style={links[0].page === currentPage ? {fontWeight: 600} : {}}
                 key={links[0].page}
             >
-            {links[0].text}
+                {links[0].text}
             </Link>
             <Link to={links[1].to}
                 className={link_class}
                 style={links[1].page === currentPage ? {fontWeight: 600} : {}}
                 key={links[1].page}
             >
-            {links[1].text}
+                {links[1].text}
             </Link>
-            <p className={link_class} id={links[2].page} onClick={onLink}>
+            <Link to={links[2].to}
+                className={link_class}
+                style={links[2].page === currentPage ? {fontWeight: 600} : {}}
+                key={links[2].page}
+            >
+                {links[2].text}
+            </Link>
+            {/* <p className={link_class} id={links[2].page} onClick={onLink}>
             {links[2].text}
-            </p>
+            </p> */}
             <p className={link_class} id={links[3].page} onClick={onLink}>
             {links[3].text}
             </p>
