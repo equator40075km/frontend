@@ -49,7 +49,9 @@ const ProfileBtn = function (props) {
             navigate('/profile/settings')
             if (mobile)
                 onProfile()
-            break
+            if (mobile)
+                break
+            return
         case profile_btns.exit.name:
             await LoginService.logout()
             await setCurrentPage(pages.main)

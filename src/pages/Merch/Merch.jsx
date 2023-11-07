@@ -5,15 +5,17 @@ import { pages } from '../../constants/constants'
 
 function Merch() {
     const setCurrentPage = useGlobal(state => state.setCurrentPage)
+    const setWhiteMenu = useGlobal(state => state.setWhiteMenu)
 
     useEffect(() => {
+        setWhiteMenu(false)
         setCurrentPage(pages.merch)
     })
 
     return (
         <div className={classes.container}>
             <div className={classes.progress}>
-               <img src='/static/merch-progress.svg' alt='' />
+               МЕРЧ
             </div>
         </div>
     )

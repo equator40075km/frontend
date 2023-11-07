@@ -38,10 +38,9 @@ const ImageLink = function (props) {
     }
 
     return (
-        <div className={classes.wrapper}>
-            <p className={classes.title} style={font}>{props.obj.title}</p>
-            <div className={classes.btn} onClick={toUrl} />
+        <div className={classes.wrapper} onClick={toUrl}>
             <div className={classes.back} style={back} />
+            <p className={classes.title} style={font}>{props.obj.title}</p>
         </div>
     )
 }

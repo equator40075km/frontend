@@ -7,10 +7,15 @@ import ArticleRecommendation from '../../components/Articles/ArticleRecommendati
 
 import { useArticles } from '../../store/articles'
 import { useGlobal } from '../../store/global'
-import { pages } from '../../constants/constants'
+import { pages, toast_options } from '../../constants/constants'
+import GreenBtn from '../../components/GreenBtn/GreenBtn'
+import ProfileService from '../../API/ProfileService'
+import useUserID from '../../hooks/useUserID'
+import { toast } from 'react-toastify'
 
 const ArticleDetail = function () {
   const navigate = useNavigate()
+  const userID = useUserID()
   const setCurrentPage = useGlobal(state => state.setCurrentPage)
   const setWhiteMenu = useGlobal(state => state.setWhiteMenu)
   
@@ -23,6 +28,25 @@ const ArticleDetail = function () {
     setCurrentPage(pages.articleDetail)
     setWhiteMenu(false)
   })
+
+  async function toFavorites() {
+    const response = await ProfileService.addToFavorites(userID, article.id)
+    if (response.status > 399)
+      toast.error('Ошибка сервера. Пожалуйста, сообщите о проблеме', toast_options)
+    else
+      toast.success(`Статья "${article.title}" добавлена в избранное!`, toast_options)
+  }
+
+  function favoriteBtn() {
+    return (
+      <GreenBtn
+        style={{width: "200px"}}
+        onClick={toFavorites}
+      >
+        {'в избранное'}
+      </GreenBtn>
+    )
+  }
 
   return (
     <>
@@ -47,6 +71,7 @@ const ArticleDetail = function () {
                 <p className={classes.name}>{article.author}</p>
                 <p className={classes.date}>{article.date ? article.date : '01.01.1970'}</p>
               </div>
+              {favoriteBtn()}
             </div>
             <img src={article.img} alt='equator' className={classes.image}/>
           </div>

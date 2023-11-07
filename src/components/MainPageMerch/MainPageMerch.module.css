@@ -1,4 +1,5 @@
 .merch {
+    margin-top: 50px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 100%;
@@ -29,11 +30,6 @@
 }
 
 .merchPhoto {
-    /* position: relative;
-    top: 10%;
-    height: 90%;
-    z-index: 1; */
-
     width: 100%;
     height: 100%;
     position: relative;
@@ -48,15 +44,6 @@
 }
 
 .merchGreen {
-    /* position: relative;
-    bottom: 90%;
-    left: 20%;
-    height: 90%;
-    z-index: 0;
-
-    background: #035629;
-    border-radius: 20px; */
-
     position: relative;
     bottom: 100%;
     left: 0;
@@ -71,18 +58,14 @@
     .merch {
         grid-gap: 50px;
     }
-
-    /* .merchGreen {
-        left: 10%;
-        bottom: 85%;
-    } */
 }
 
 @media only screen and (max-width: 768px) {
     .merch {
-        margin-top: 20px;
+        margin: 20px 0;
         grid-template-columns: auto;
         grid-template-rows: repeat(2, auto);
+        grid-gap: 0;
     }
 
     .merchL {
@@ -96,14 +79,4 @@
         font-weight: 600;
         letter-spacing: 0.08ex;
     }
-
-    /* .merchPhoto {
-        height: 95%;
-        top: 5%;
-    }
-
-    .merchGreen {
-        left: 5%;
-        bottom: 95%;
-    } */
 }

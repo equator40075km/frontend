@@ -1,8 +1,5 @@
 .container {
-    margin: 50px 0;
-
-    display: grid;
-    grid-template-rows: auto auto 500px;
+    margin: 30px 0 50px 0;
 }
 
 .header {
@@ -16,10 +13,13 @@
 .title {
     margin: 0 10%;
     display: grid;
-    grid-template-columns: 70% auto;
+    grid-gap: 20px;
 
     font-size: 40px;
     font-weight: 600;
+}
+.title p {
+    align-self: center;
 }
 
 .author {
@@ -27,15 +27,14 @@
     grid-template-areas:
         'avatar name'
         'avatar date';
-    grid-template-columns: 60px 50%;
-    grid-template-rows: 50% auto;
+    grid-template-columns: 60px auto;
+    grid-template-rows: auto auto;
     align-items: center;
-    justify-content:right;
+    column-gap: 20px;
+    row-gap: 10px;
 
     min-height: 60px;
     height: 100%;
-
-    text-align: right;
 }
 
 .image {
@@ -46,6 +45,7 @@
 }
 
 .avatar {
+    margin-left: auto;
     grid-area: avatar;
     height: 60px;
     width: 60px;
@@ -61,6 +61,7 @@
     font-size: 20px;
     font-weight: 600;
     align-self: end;
+    word-wrap: normal;
 }
 
 .date {
@@ -71,7 +72,6 @@
 }
 
 .content {
-    display: inline-block;
     margin: 50px 25%;
     font-size: 20px;
     line-height: 150%;
@@ -92,15 +92,9 @@
     .content {
         margin: 25px 5%;
     }
-}
 
-@media only screen and (max-width: 1200px) {
     .title {
         margin: 0 5%;
-        grid-template-columns: auto;
-        grid-template-rows: auto auto;
-        grid-gap: 25px;
-
         font-size: 24px;
     }
 
@@ -108,16 +102,14 @@
         grid-template-columns: 60px auto;
         grid-template-rows: 50% auto;
         align-items: center;
-        justify-content: left;
     
         min-height: 60px;
         height: 100%;
     
-        text-align: right;
+        text-align: left;
     }
 
     .name {
-        padding-left: 20px;
         font-size: 16px;
         font-style: normal;
         font-weight: 600;

@@ -6,44 +6,25 @@ import IconBtn from '../../components/IconBtn/IconBtn';
 import { useNavigate } from 'react-router-dom';
 import { text_sign } from '../../constants/constants';
 import LoginService from '../../API/LoginService';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
+import { toast_options } from '../../constants/constants';
 
 const Login = function (props) {
     const navigate = useNavigate()
     const setCurrentPage = useGlobal(state => state.setCurrentPage)
-
     const isLogin = props.type === 'sign_in'
     const text = isLogin ? text_sign.in : text_sign.up
-
     const passwordInputRef = useRef()
 
     useEffect(() => {
         setCurrentPage(pages.login)
-    })
-
-    const onLogo = () => {
-        navigate('/')
-    }
+    }, [setCurrentPage])
 
     const onOrLink = () => {
         if (isLogin)
             navigate('/signup')
         else
             navigate('/login')
-    }
-
-    const notify = (msg) => {
-        toast.error(msg, {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-        })
     }
 
     const handleSubmit = async (event) => {
@@ -54,18 +35,19 @@ const Login = function (props) {
              formData.get('password').trim() === '' || 
              (!isLogin && formData.get('username').trim() === '') )
         {
-            notify('Поля не могут быть пустыми')
+            toast.error('Поля не могут быть пустыми', toast_options)
             return
         }
 
         if (isLogin) {
             const errorMsg = await LoginService.signIn(formData)
-            if (errorMsg)
-                notify(errorMsg)
-            else
-                navigate('/')
-
-            passwordInputRef.current.value = ''
+            if (errorMsg) {
+                passwordInputRef.current.value = ''
+                toast.error(errorMsg, toast_options)
+                return
+            }
+            
+            navigate('/')
             return
         }
 
@@ -77,45 +59,39 @@ const Login = function (props) {
         }
 
         passwordInputRef.current.value = ''
-        notify(errorMsg)
+        toast.error(errorMsg, toast_options)
     }
 
     return (
-        <>
-            <div className={classes.toast}>
-                <ToastContainer />
-            </div>
-            <div className={classes.wrapper}>
-                <div className={classes.container}>
-                    <div className={classes.logo} onClick={onLogo} />
-                    <div className={classes.outbox}>
-                        <p className={classes.ftitle}>{text.title}</p>
-                        <IconBtn icon='/static/vk-icon.png' text={text.vk} />
-                        <IconBtn icon='/static/google-icon.png' text={text.google} />
-                        <p className={classes.or}>или</p>
-                        <form onSubmit={handleSubmit}>
-                            {!isLogin && 
-                                <input name='username' className={classes.input} type='text' placeholder='Ваш логин' />
-                            }
-                            <input name='email' className={classes.input} type='email' placeholder='Ваша почта' />
-                            <input ref={passwordInputRef} name='password' className={classes.input} type='password' placeholder={text.password} />
-                            <p className={classes.rules}> 
-                            Нажимая «Создать», вы принимаете пользовательское соглашение и политику конфиденциальности
-                            </p>
-                            <button className={classes.loginBtn} type='submit'>
-                                {text.btn}
-                            </button>
-                        </form>
-                        <span className={classes.or}>{text.link_text}
-                            <p className={classes.link} onClick={onOrLink}>
-                                {text.link}
-                            </p>
-                        </span>
-                    </div>
+        <div className={classes.wrapper}>
+            <div className={classes.container}>
+                <div className={classes.logo} onClick={() => {navigate('/')}} />
+                <div className={classes.outbox}>
+                    <p className={classes.ftitle}>{text.title}</p>
+                    <IconBtn icon='/static/vk-icon.png' text={text.vk} />
+                    <IconBtn icon='/static/google-icon.png' text={text.google} />
+                    <p className={classes.or}>или</p>
+                    <form onSubmit={handleSubmit}>
+                        {!isLogin && 
+                            <input name='username' className={classes.input} type='text' placeholder='Ваш логин' />
+                        }
+                        <input name='email' className={classes.input} type='email' placeholder='Ваша почта' />
+                        <input ref={passwordInputRef} name='password' className={classes.input} type='password' placeholder={text.password} />
+                        <p className={classes.rules}> 
+                        Нажимая «Создать», вы принимаете пользовательское соглашение и политику конфиденциальности
+                        </p>
+                        <button className={classes.loginBtn} type='submit'>
+                            {text.btn}
+                        </button>
+                    </form>
+                    <span className={classes.or}>{text.link_text}
+                        <p className={classes.link} onClick={onOrLink}>
+                            {text.link}
+                        </p>
+                    </span>
                 </div>
             </div>
-        </>
-
+        </div>
     )
 }
 

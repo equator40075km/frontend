@@ -9,8 +9,6 @@ const TourImage = function (props) {
         backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.1)), url(${props.tour.img})`
     }
 
-    console.log(props)
-
     const toUrl = () => {
         navigate(`/tours/${props.tour.name}`)
     }

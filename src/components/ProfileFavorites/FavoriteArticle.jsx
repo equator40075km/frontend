@@ -3,6 +3,9 @@ import classes from './FavoriteArticle.module.css'
 import useMatchMedia from 'use-match-media-hook'
 import { useNavigate } from 'react-router-dom'
 import GreenBtn from '../GreenBtn/GreenBtn'
+import ProfileService from '../../API/ProfileService'
+import { toast } from 'react-toastify'
+import { toast_options } from '../../constants/constants'
 
 function FavoriteArticle(props) {
     const navigate = useNavigate()
@@ -15,11 +18,23 @@ function FavoriteArticle(props) {
             setIcon('/static/like-active.png')
         else
             setIcon('/static/like-default.png')
-
-        // TODO: api
     }, [like])
 
-    function onLike() {
+    async function onLike() {
+        if (like) {
+            const response = await ProfileService.removeFromFavorites(props.userID, props.id)
+            if (response.status > 399) {
+                toast.error('Ошибка сервера. Пожалуйста, сообщите нам о проблеме', toast_options)
+                return
+            }
+        } else {
+            const response = await ProfileService.addToFavorites(props.userID, props.id)
+            if (response.status > 399) {
+                toast.error('Ошибка сервера. Пожалуйста, сообщите нам о проблеме', toast_options)
+                return
+            }
+        }
+
         setLike(!like)
     }
 

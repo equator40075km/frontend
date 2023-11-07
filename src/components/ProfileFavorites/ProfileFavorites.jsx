@@ -1,17 +1,33 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import classes from './ProfileFavorites.module.css'
-import { useArticles } from '../../store/articles'
 import GreenBtn from '../GreenBtn/GreenBtn'
 import { useNavigate } from 'react-router-dom'
 import FavoriteArticle from './FavoriteArticle'
+import ProfileService from '../../API/ProfileService'
+import useUserID from '../../hooks/useUserID'
 
 function ProfileFavorites() {
   const navigate = useNavigate()
-  const articles = useArticles(state => state.articles)
+  const userID = useUserID()
+  const [favorites, setFavorites] = useState([])
+
+  useEffect(() => {
+    async function fetchFavorites() {
+      if (!userID)
+        return
+
+      const response = await ProfileService.getFavorites(userID)
+
+      if (response && response.status === 200)
+          setFavorites(response.data)
+    }
+
+    fetchFavorites()
+  }, [setFavorites, userID])
 
   return (
     <>
-      {articles.length === 0
+      {favorites.length === 0
       ?
       <div className={classes.empty}>
         <h1>У вас пока нет избранных статей</h1>
@@ -22,8 +38,8 @@ function ProfileFavorites() {
       </div>
       :
       <div>
-        {articles.map(article => (
-          <FavoriteArticle {...article} key={article.id}/>
+        {favorites.map(article => (
+          <FavoriteArticle userID={userID} {...article} key={article.id}/>
         ))}
       </div>
       }

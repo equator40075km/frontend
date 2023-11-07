@@ -3,14 +3,10 @@ import { url } from '../constants/constants'
 
 export default class ProfileService {
     static async getUserID() {
-        const token = localStorage.getItem('token')
-        if (!token)
-            return null
-
         try {
             const response = await axios.get(`${url}token/`, {
                 headers: {
-                    Authorization: 'Token ' + token
+                    Authorization: `Token ${localStorage.getItem('token')}`
                 }
             })
 
@@ -26,40 +22,77 @@ export default class ProfileService {
     }
 
     static async getProfile(user_id) {
-        const token = localStorage.getItem('token')
-        if (!token)
-            return null
-
         try {
             const response = await axios.get(`${url}profiles/${user_id}/`, {
                 headers: {
-                    Authorization: 'Token ' + token
+                    Authorization: `Token ${localStorage.getItem('token')}`
                 }
             })
             return response
         } catch (error) {
             console.log('ERROR getProfile:')
             console.log(error)
-            return error
+            return error.response
         }
     }
 
     static async updateProfile(user_id, data) {
-        const token = localStorage.getItem('token')
-        if (!token)
-            return null
-
         try {
             const response = await axios.put(`${url}profiles/${user_id}/`, data, {
                 headers: {
-                    Authorization: 'Token ' + token
+                    Authorization: `Token ${localStorage.getItem('token')}`
                 }
             })
             return response
         } catch (error) {
             console.log('ERROR updateProfile:')
             console.log(error)
-            return error
+            return error.response
+        }
+    }
+
+    static async getFavorites(user_id) {
+        try {
+            const response = await axios.get(`${url}profiles/${user_id}/favorites/`, {
+                headers: {
+                    Authorization: `Token ${localStorage.getItem('token')}`
+                }
+            })
+            return response
+        } catch (error) {
+            console.log('ERROR getFavorites:')
+            console.log(error)
+            return error.response
+        }
+    }
+
+    static async addToFavorites(user_id, article_id) {
+        try {
+            const response = await axios.put(`${url}profiles/${user_id}/favorites/${article_id}/`, {
+                headers: {
+                    Authorization: `Token ${localStorage.getItem('token')}`
+                }
+            })
+            return response
+        } catch (error) {
+            console.log('ERROR addToFavorites:')
+            console.log(error)
+            return error.response
+        }
+    }
+
+    static async removeFromFavorites(user_id, article_id) {
+        try {
+            const response = await axios.delete(`${url}profiles/${user_id}/favorites/${article_id}/`, {
+                headers: {
+                    Authorization: `Token ${localStorage.getItem('token')}`
+                }
+            })
+            return response
+        } catch (error) {
+            console.log('ERROR addToFavorites:')
+            console.log(error)
+            return error.response
         }
     }
 }

@@ -46,7 +46,7 @@ const MainPage = function () {
           <ImageLink obj={{
             external: true,
             url: 'https://t.me/equator_tickets_bot',
-            title: 'Найдите выгодные былеты',
+            title: 'Найдите выгодные билеты',
             img: 'static/tickets-link.jpeg',
             big: true
           }} />

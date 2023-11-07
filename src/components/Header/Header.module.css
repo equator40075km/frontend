@@ -1,6 +1,6 @@
 .header {
     width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     
     display: grid;
     grid-template-rows: 10vh auto auto;
@@ -46,10 +46,4 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0));
-}
-
-@media only screen and (max-width: 1200px) {
-    .header {
-        margin-bottom: 25px;
-    }
 }
